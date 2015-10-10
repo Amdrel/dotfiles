@@ -1,0 +1,3 @@
+termcapinfo xterm* ti@:te@
+altscreen on
+scrollback 100000
