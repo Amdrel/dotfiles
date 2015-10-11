@@ -61,11 +61,12 @@ if has("unix")
     set clipboard=unnamed
   elseif os == 'Linux'
     set clipboard=unnamedplus
+
+    " Get the_silver_surfer working with vim.
+    let g:ackprg = "ag --vimgrep"
   endif
 endif
 
-" Get the_silver_surfer working with vim.
-let g:ackprg = "ag --vimgrep"
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
 " Turn off all jellybeans background colours
