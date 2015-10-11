@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/walter/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -53,37 +53,28 @@ export PATH="/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/
 export JAVA_HOME="/usr/java/latest"
 export ANDROID_HOME="$HOME/Android/Sdk"
 export ANDROID_NDK_ROOT="$HOME/Android/Ndk"
-export EDITOR="vimx"
-# export MANPATH="/usr/local/man:$MANPATH"
+export EDITOR="vim"
 
 # Load oh-my-zsh config.
 source $ZSH/oh-my-zsh.sh
 
 # Shell aliases
-alias la='ls -a'
+alias la="ls -a"
 
 # Get X11 support in vim please.
-alias vim='vimx'
+if type "vimx" > /dev/null; then
+  alias vim="vimx"
+fi
 
 # Program aliases.
-alias vi='vim'
+alias vi="vim"
 
 # Do not open emacs in X.
-alias emacs='emacs -nw'
+alias emacs="emacs -nw"
 
 if [[ $DESKTOP_SESSION == "i3" ]]; then
   # Startup the gnome keyring daemon.
   export $(/usr/bin/gnome-keyring-daemon -s)
-fi
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='vimx'
 fi
 
 if ! [ -z "$TMUX" ]; then
@@ -92,20 +83,5 @@ if ! [ -z "$TMUX" ]; then
 
   export TERM=screen-256color
 fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 [ -s "/home/walter/.dnx/dnvm/dnvm.sh" ] && . "/home/walter/.dnx/dnvm/dnvm.sh" # Load dnvm
