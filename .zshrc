@@ -85,3 +85,33 @@ if ! [ -z "$TMUX" ]; then
 fi
 
 [ -s "/home/walter/.dnx/dnvm/dnvm.sh" ] && . "/home/walter/.dnx/dnvm/dnvm.sh" # Load dnvm
+
+# Fix zsh syntax highlighting colors. Well by fix make them the way I like it.
+# Since I like Arch I turn all the occurences of "green" to "cyan".
+ZSH_HIGHLIGHT_STYLES[default]=none
+ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=red,bold
+ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=yellow
+ZSH_HIGHLIGHT_STYLES[alias]=fg=cyan
+ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=cyan
+ZSH_HIGHLIGHT_STYLES[builtin]=fg=cyan
+ZSH_HIGHLIGHT_STYLES[function]=fg=cyan
+ZSH_HIGHLIGHT_STYLES[command]=fg=cyan
+ZSH_HIGHLIGHT_STYLES[precommand]=fg=cyan
+ZSH_HIGHLIGHT_STYLES[commandseparator]=none
+ZSH_HIGHLIGHT_STYLES[hashed-command]=fg=cyan
+ZSH_HIGHLIGHT_STYLES[path]=none
+ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+ZSH_HIGHLIGHT_STYLES[path_approx]=fg=yellow
+ZSH_HIGHLIGHT_STYLES[globbing]=fg=blue
+ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=blue
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=none
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=none
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=yellow
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=yellow
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=yellow
+ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=cyan
+ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=cyan
+ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=cyan
+ZSH_HIGHLIGHT_STYLES[assign]=none
+ZSH_HIGHLIGHT_STYLES[redirection]=none
