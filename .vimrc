@@ -19,6 +19,7 @@ set autoindent
 set autoread
 set nowrap
 set cursorline
+set wildmenu
 
 " Change cursor to line cursor while in insert mode.
 let &t_SI = "\<Esc>[6 q"
