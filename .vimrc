@@ -9,6 +9,9 @@ python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
 
+" Fix crappy Mac OS X defaults.
+set backspace=indent,eol,start
+
 set laststatus=2
 
 set nu
@@ -48,11 +51,21 @@ set ttimeoutlen=0
 set completeopt=menu,menuone
 
 " Copy to the X11 clipboard, may work with XWayland once my nvidia gpu
-" supports wayland.
-set clipboard=unnamedplus
+" supports wayland. On Mac OS X use unnamed instead. If on Windows sorry,
+" don't use so I do not know how to get native clipboard support working
+" there.
+if has("unix")
+  let os=substitute(system('uname'), '\n', '', '')
+
+  if os == 'Darwin' || os == 'Mac'
+    set clipboard=unnamed
+  elseif os == 'Linux'
+    set clipboard=unnamedplus
+  endif
+endif
 
 " Get the_silver_surfer working with vim.
-let g:ackprg = 'ag --vimgrep'
+let g:ackprg = "ag --vimgrep"
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
 " Turn off all jellybeans background colours
