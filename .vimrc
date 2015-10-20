@@ -51,6 +51,9 @@ set ttimeoutlen=0
 " show menu) Just bugs me more than I'd prefer.
 set completeopt=menu,menuone
 
+" Fix GDScript highlighting.
+au BufNewFile,BufRead *.gd set filetype=gdscript
+
 " Copy to the X11 clipboard, may work with XWayland once my nvidia gpu
 " supports wayland. On Mac OS X use unnamed instead. If on Windows sorry,
 " don't use so I do not know how to get native clipboard support working
