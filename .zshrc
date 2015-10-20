@@ -121,3 +121,6 @@ source "$HOME/bin/google-cloud-sdk/path.zsh.inc"
 
 # The next line enables shell command completion for gcloud.
 source "$HOME/bin/google-cloud-sdk/completion.zsh.inc"
+
+# Load AWS completions if they exist, path may be different on Mac OSX/Darwin.
+[ -s "/usr/bin/aws_zsh_completer.sh" ] && source "/usr/bin/aws_zsh_completer.sh"
