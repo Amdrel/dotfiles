@@ -84,7 +84,7 @@ if ! [ -z "$TMUX" ]; then
   export TERM=screen-256color
 fi
 
-[ -s "/home/walter/.dnx/dnvm/dnvm.sh" ] && . "/home/walter/.dnx/dnvm/dnvm.sh" # Load dnvm
+[ -s "$HOME/.dnx/dnvm/dnvm.sh" ] && . "$HOME/.dnx/dnvm/dnvm.sh" # Load dnvm
 
 # Fix zsh syntax highlighting colors. Well by fix make them the way I like it.
 # Since I like Arch I turn all the occurences of "green" to "cyan".
@@ -115,3 +115,9 @@ ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=cyan
 ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=cyan
 ZSH_HIGHLIGHT_STYLES[assign]=none
 ZSH_HIGHLIGHT_STYLES[redirection]=none
+
+# The next line updates PATH for the Google Cloud SDK.
+source "$HOME/bin/google-cloud-sdk/path.zsh.inc"
+
+# The next line enables shell command completion for gcloud.
+source "$HOME/bin/google-cloud-sdk/completion.zsh.inc"
