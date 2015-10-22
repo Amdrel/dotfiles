@@ -72,6 +72,11 @@ alias vi="vim"
 # Do not open emacs in X.
 alias emacs="emacs -nw"
 
+# AWS aliases.
+alias s3="aws s3"
+alias sqs="aws sqs"
+alias sns="aws sns"
+
 if [[ $DESKTOP_SESSION == "i3" ]]; then
   # Startup the gnome keyring daemon.
   export $(/usr/bin/gnome-keyring-daemon -s)
