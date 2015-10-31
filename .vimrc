@@ -95,7 +95,9 @@ let g:jellybeans_background_color_256="none"
 let g:jellybeans_use_lowcolor_black = 0
 
 " Fancy colors fancy time!
-colorscheme jellybeans
+colorscheme badwolf
+
+hi Normal ctermbg=none
 
 "set background=dark
 "hi ColorColumn ctermbg=234 ctermfg=234

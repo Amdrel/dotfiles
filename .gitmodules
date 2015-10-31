@@ -42,7 +42,10 @@
     url = https://github.com/tpope/vim-sleuth.git
 [submodule "YouCompleteMe"]
     path = .vim/bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
+    url = https://github.com/Valloric/YouCompleteMe.git
 [submodule "vim-multiple-cursors"]
-	path = .vim/bundle/vim-multiple-cursors
-	url = https://github.com/terryma/vim-multiple-cursors.git
+    path = .vim/bundle/vim-multiple-cursors
+    url = https://github.com/terryma/vim-multiple-cursors.git
+[submodule "vim-colorschemes"]
+    path = .vim/bundle/vim-colorschemes
+    url = https://github.com/flazz/vim-colorschemes.git
