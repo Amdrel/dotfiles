@@ -63,7 +63,7 @@ if has("unix")
 
   if os == 'Darwin' || os == 'Mac'
     set clipboard=unnamed
-  elseif os == 'Linux'
+  elseif os == 'Linux' || os == 'FreeBSD' || os == 'OpenBSD' || os == 'NetBSD'
     set clipboard=unnamedplus
 
     " Get the_silver_surfer working with vim.
