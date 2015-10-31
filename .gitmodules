@@ -49,3 +49,6 @@
 [submodule "vim-colorschemes"]
     path = .vim/bundle/vim-colorschemes
     url = https://github.com/flazz/vim-colorschemes.git
+[submodule "vim-hybrid"]
+    path = .vim/bundle/vim-hybrid
+    url = https://github.com/w0ng/vim-hybrid.git
