@@ -1,5 +1,31 @@
-call pathogen#infect()
-call pathogen#helptags()
+" Screw compatibility, that's not hip and kewl.
+set nocompatible
+filetype off
+
+" Required Vundle setup.
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/vundle'
+Plugin 'Valloric/MatchTagAlways'
+Plugin 'Glench/Vim-Jinja2-Syntax'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'mileszs/ack.vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'alvan/vim-closetag'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'tpope/vim-fugitive'
+Plugin 'quabug/vim-gdscript'
+Plugin 'w0ng/vim-hybrid'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'tpope/vim-sleuth'
+
+call vundle#end()
 
 filetype plugin indent on
 syntax on
