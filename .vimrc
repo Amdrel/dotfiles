@@ -1,32 +1,31 @@
-call pathogen#infect()
-call pathogen#helptags()
-
 " Screw compatibility, that's not hip and kewl.
 set nocompatible
+filetype off
 
 " Required Vundle setup.
-filetype off
-set runtimepath+=~/.vim/bundle/vundle
-call vundle#rc()
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'Valloric/MatchTagAlways'
-Bundle 'Glench/Vim-Jinja2-Syntax'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'mileszs/ack.vim'
-Bundle 'jiangmiao/auto-pairs'
-Bundle 'ctrlpvim/ctrlp.vim'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'ntpeters/vim-better-whitespace'
-Bundle 'alvan/vim-closetag'
-Bundle 'flazz/vim-colorschemes'
-Bundle 'tpope/vim-fugitive'
-Bundle 'quabug/vim-gdscript'
-Bundle 'w0ng/vim-hybrid'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'hynek/vim-python-pep8-indent'
-Bundle 'tpope/vim-sleuth'
+Plugin 'gmarik/vundle'
+Plugin 'Valloric/MatchTagAlways'
+Plugin 'Glench/Vim-Jinja2-Syntax'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'mileszs/ack.vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'alvan/vim-closetag'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'tpope/vim-fugitive'
+Plugin 'quabug/vim-gdscript'
+Plugin 'w0ng/vim-hybrid'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'tpope/vim-sleuth'
+
+call vundle#end()
 
 filetype plugin indent on
 syntax on
