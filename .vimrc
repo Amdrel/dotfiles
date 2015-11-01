@@ -24,16 +24,12 @@ Plugin 'w0ng/vim-hybrid'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'tpope/vim-sleuth'
+Plugin 'bling/vim-airline'
 
 call vundle#end()
 
 filetype plugin indent on
 syntax on
-
-" Setup powerline statusline. It's pretty...
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
 
 " Fix crappy Mac OS X defaults.
 set backspace=indent,eol,start
@@ -79,6 +75,19 @@ set completeopt=menu,menuone
 
 " Fix GDScript highlighting.
 au BufNewFile,BufRead *.gd set filetype=gdscript
+
+let g:airline_theme= 'laederon'
+
+let g:airline_right_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep= ''
+let g:airline_left_sep = ''
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.branch = '⎇ '
 
 " Copy to the X11 clipboard, may work with XWayland once my nvidia gpu
 " supports wayland. On Mac OS X use unnamed instead. If on Windows sorry,
