@@ -55,6 +55,9 @@ let g:html_indent_inctags="body,head,tbody"
 " 80 columns by default.
 set colorcolumn=80,100,120
 
+" Never let the cursor hit the very bottom of the screen.
+set scrolloff=8
+
 " Highlight search terms, because that should happen.
 set hlsearch
 
@@ -76,8 +79,10 @@ set completeopt=menu,menuone
 " Fix GDScript highlighting.
 au BufNewFile,BufRead *.gd set filetype=gdscript
 
-let g:airline_theme= 'laederon'
+" A nice colored statusline.
+let g:airline_theme = 'laederon'
 
+" No need for fancy arrows to take up space.
 let g:airline_right_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_left_alt_sep= ''
@@ -106,33 +111,10 @@ if has("unix")
   endif
 endif
 
+" Only autoclose tags on these file types.
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
-
-" Turn off all jellybeans background colours
-" ------------------------------------------
-
-" where turning off background colors would leave the text invisible
-" on a dark background I've used the background color picked by jellybeans
-" for the the foreground.
-"
-" NOTE:
-"	Setting the background of StatusLine and StatusLineNC to none
-"	seems to result in a bug in which the space of the status line
-"	is filled with carets- very annoying!
-"
-let g:jellybeans_overrides = {
-\	'Normal': {
-\		'256ctermbg': 'none',
-\	}
-\}
-
-let g:jellybeans_background_color_256="none"
-let g:jellybeans_use_lowcolor_black = 0
 
 " Fancy colors fancy time!
 set background=dark
 colorscheme hybrid
 hi Normal ctermbg=none
-
-"set background=dark
-"hi ColorColumn ctermbg=234 ctermfg=234
