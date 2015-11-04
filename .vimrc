@@ -43,10 +43,23 @@ set nowrap
 set cursorline
 set wildmenu
 
-" Change cursor to line cursor while in insert mode.
-let &t_SI = "\<Esc>[6 q"
-let &t_SR = "\<Esc>[4 q"
-let &t_EI = "\<Esc>[2 q"
+" Screw mice, real men only use keyboards.
+set mouse-=a
+
+" Fix neovim backups.
+set backupdir=~/.local/share/nvim/swap
+
+if has('nvim')
+  " Provide an easy way to escape the terminal.
+  tnoremap <C-X> <C-\><C-n>
+
+  " Change cursor to line cursor while in insert mode.
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+else
+  let &t_SI = "\<Esc>[6 q"
+  let &t_SR = "\<Esc>[4 q"
+  let &t_EI = "\<Esc>[2 q"
+endif
 
 " Allow auto indenting on these usually blacklisted tags. This means that only
 " the <html> tag should not indent.
@@ -56,7 +69,7 @@ let g:html_indent_inctags="body,head,tbody"
 set colorcolumn=80,100,120
 
 " Never let the cursor hit the very bottom of the screen.
-set scrolloff=8
+set scrolloff=3
 
 " Highlight search terms, because that should happen.
 set hlsearch
@@ -116,5 +129,5 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
 " Fancy colors fancy time!
 set background=dark
-colorscheme hybrid
+colorscheme badwolf
 hi Normal ctermbg=none

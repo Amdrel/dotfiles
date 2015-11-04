@@ -68,6 +68,7 @@ fi
 
 # Program aliases.
 alias vi="vim"
+alias vim="nvim"
 
 # Do not open emacs in X.
 alias emacs="emacs -nw"
