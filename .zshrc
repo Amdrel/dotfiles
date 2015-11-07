@@ -61,14 +61,19 @@ source $ZSH/oh-my-zsh.sh
 # Shell aliases
 alias la="ls -a"
 
-# Get X11 support in vim please.
-if type "vimx" > /dev/null; then
-  alias vim="vimx"
+if type "nvim" > /dev/null; then
+  # Got neovim, alias it out. Too lazy to type "n".
+  alias vim="nvim"
+else
+  # Get X11 support in vim if neovim is not present. If vimx is not avaliable
+  # either screw X11 support.
+  if type "vimx" > /dev/null; then
+    alias vim="vimx"
+  fi
 fi
 
 # Program aliases.
 alias vi="vim"
-alias vim="nvim"
 
 # Do not open emacs in X.
 alias emacs="emacs -nw"
@@ -79,7 +84,7 @@ alias sqs="aws sqs"
 alias sns="aws sns"
 
 if [[ $DESKTOP_SESSION == "i3" ]]; then
-  # Startup the gnome keyring daemon.
+  # Startup the gnome keyring daemon when in i3.
   export $(/usr/bin/gnome-keyring-daemon -s)
 fi
 
@@ -113,20 +118,23 @@ ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=blue
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=none
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=none
 ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=yellow
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=yellow
-ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=yellow
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=green
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=green
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=green
 ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=cyan
 ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=cyan
 ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=cyan
 ZSH_HIGHLIGHT_STYLES[assign]=none
 ZSH_HIGHLIGHT_STYLES[redirection]=none
 
+GCLOUD_PATH="$HOME/bin/google-cloud-sdk/path.zsh.inc"
+GCLOUD_COMP="$HOME/bin/google-cloud-sdk/completion.zsh.inc"
+
 # The next line updates PATH for the Google Cloud SDK.
-source "$HOME/bin/google-cloud-sdk/path.zsh.inc"
+[ -s $GCLOUD_PATH ] && source $GCLOUD_COMP
 
 # The next line enables shell command completion for gcloud.
-source "$HOME/bin/google-cloud-sdk/completion.zsh.inc"
+[ -s $GCLOUD_COMP ] && source $GCLOUD_COMP
 
 # Load AWS completions if they exist, path may be different on Mac OSX/Darwin.
 [ -s "/usr/bin/aws_zsh_completer.sh" ] && source "/usr/bin/aws_zsh_completer.sh"

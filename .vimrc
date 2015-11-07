@@ -1,4 +1,3 @@
-" Screw compatibility, that's not hip and kewl.
 set nocompatible
 filetype off
 
