@@ -1,3 +1,7 @@
+# sh syntax looks much better than vim's zsh syntax highlighting. Appears to
+# work well enough for it to be used on zsh scipts.
+# vim: set syntax=sh:
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
