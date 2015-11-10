@@ -49,16 +49,39 @@ set mouse-=a
 set backupdir=~/.local/share/nvim/swap
 
 if has('nvim')
+  let g:prog_name = "Neovim"
+
   " Provide an easy way to escape the terminal.
   tnoremap <C-X> <C-\><C-n>
 
   " Change cursor to line cursor while in insert mode.
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 else
+  let g:prog_name = "Vim"
+
   let &t_SI = "\<Esc>[6 q"
   let &t_SR = "\<Esc>[4 q"
   let &t_EI = "\<Esc>[2 q"
 endif
+
+" Generates a title for the window based on the context of the current buffer.
+" If the buffer is a new buffer, show the program name, otherwise show the
+" program name along with the buffer name prepended.
+function! GetTitle()
+  let buffer_name = expand("%:t")
+
+  if len(buffer_name) <= 0
+    " No buffer name so just return the program name.
+    return g:prog_name
+  else
+    " Prepend the buffer name to the program name.
+    return buffer_name . " - " . g:prog_name
+  endif
+endfunction
+
+" Automatically reset the title on buffer enter.
+autocmd BufEnter * let &titlestring = GetTitle()
+set title
 
 " Allow auto indenting on these usually blacklisted tags. This means that only
 " the <html> tag should not indent.
