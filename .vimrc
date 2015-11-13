@@ -24,6 +24,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'tpope/vim-sleuth'
 Plugin 'bling/vim-airline'
+Plugin 'geoffharcourt/one-dark.vim'
 
 call vundle#end()
 
@@ -56,6 +57,7 @@ if has('nvim')
 
   " Change cursor to line cursor while in insert mode.
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 else
   let g:prog_name = "Vim"
 
@@ -115,13 +117,10 @@ set completeopt=menu,menuone
 au BufNewFile,BufRead *.gd set filetype=gdscript
 
 " A nice colored statusline.
-let g:airline_theme = 'laederon'
+let g:airline_theme = 'base16'
 
-" No need for fancy arrows to take up space.
-let g:airline_right_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_left_alt_sep= ''
-let g:airline_left_sep = ''
+" Arrows are great!
+let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -151,5 +150,5 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
 " Fancy colors fancy time!
 set background=dark
-colorscheme badwolf
+colorscheme onedark
 hi Normal ctermbg=none

@@ -89,12 +89,19 @@ alias sns="aws sns"
 
 if [[ $DESKTOP_SESSION == "i3" ]]; then
   # Startup the gnome keyring daemon when in i3.
+
   export $(/usr/bin/gnome-keyring-daemon -s)
 fi
 
 if ! [ -z "$TMUX" ]; then
   # Allow tmux to use full 256 colors. Will only be exported if there is an
   # actual tmux session, otherwise the terminal emulator picks the term.
+
+  export TERM=screen-256color
+fi
+
+if [ "$TERM" = "screen" ]; then
+  # Assume GNU Screen supports 256 colors. WHAT YEAR IS IT?
 
   export TERM=screen-256color
 fi
