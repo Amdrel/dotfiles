@@ -150,5 +150,5 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
 " Fancy colors fancy time!
 set background=dark
-colorscheme onedark
+colorscheme badwolf
 hi Normal ctermbg=none
