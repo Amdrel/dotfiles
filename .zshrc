@@ -57,7 +57,7 @@ export PATH="/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/
 export JAVA_HOME="/usr/java/latest"
 export ANDROID_HOME="$HOME/Android/Sdk"
 export ANDROID_NDK_ROOT="$HOME/Android/Ndk"
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # Load oh-my-zsh config.
 source $ZSH/oh-my-zsh.sh
