@@ -5,7 +5,7 @@ filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'Valloric/YouCompleteMe'
@@ -150,5 +150,5 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
 " Fancy colors fancy time!
 set background=dark
-colorscheme badwolf
+colorscheme Monokai
 hi Normal ctermbg=none
