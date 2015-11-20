@@ -118,10 +118,13 @@ set completeopt=menu,menuone
 au BufNewFile,BufRead *.gd set filetype=gdscript
 
 " A nice colored statusline.
-let g:airline_theme = 'base16'
+let g:airline_theme = 'raven'
 
-" Arrows are great!
-let g:airline_powerline_fonts = 1
+" Remove the arrows.
+let g:airline_right_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep= ''
+let g:airline_left_sep = ''
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -152,10 +155,10 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 " Fancy colors fancy time!
 if has('nvim')
   set background=dark
-  colorscheme base16-monokai
+  colorscheme base16-atelierdune
 else
   set background=dark
-  colorscheme Monokai
+  colorscheme badwolf
 endif
 
-hi Normal ctermbg=none
+"hi Normal ctermbg=none
