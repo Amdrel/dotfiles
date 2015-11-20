@@ -150,6 +150,12 @@ endif
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
 " Fancy colors fancy time!
-set background=dark
-colorscheme base16-monokai
+if has('nvim')
+  set background=dark
+  colorscheme base16-monokai
+else
+  set background=dark
+  colorscheme Monokai
+endif
+
 hi Normal ctermbg=none
