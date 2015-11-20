@@ -25,6 +25,7 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'tpope/vim-sleuth'
 Plugin 'bling/vim-airline'
 Plugin 'geoffharcourt/one-dark.vim'
+Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
 
@@ -150,5 +151,5 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
 " Fancy colors fancy time!
 set background=dark
-colorscheme Monokai
+colorscheme base16-monokai
 hi Normal ctermbg=none
