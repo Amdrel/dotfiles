@@ -118,7 +118,7 @@ set completeopt=menu,menuone
 au BufNewFile,BufRead *.gd set filetype=gdscript
 
 " A nice colored statusline.
-let g:airline_theme = 'raven'
+let g:airline_theme = 'luna'
 
 " Remove the arrows.
 let g:airline_right_alt_sep = ''
@@ -155,10 +155,10 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 " Fancy colors fancy time!
 if has('nvim')
   set background=dark
-  colorscheme base16-atelierdune
+  colorscheme molokai
 else
   set background=dark
-  colorscheme badwolf
+  colorscheme molokai
 endif
 
 "hi Normal ctermbg=none
