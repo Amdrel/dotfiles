@@ -150,6 +150,9 @@ if has("unix")
   endif
 endif
 
+" Set the GOPATH.
+let $GOPATH="$HOME/src/go/"
+
 " Only autoclose tags on these file types.
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
