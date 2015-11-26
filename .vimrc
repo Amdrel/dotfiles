@@ -27,6 +27,7 @@ Plugin 'tpope/vim-sleuth'
 Plugin 'bling/vim-airline'
 Plugin 'geoffharcourt/one-dark.vim'
 Plugin 'chriskempson/base16-vim'
+Plugin 'othree/html5.vim'
 
 call vundle#end()
 
@@ -115,8 +116,19 @@ set ttimeoutlen=0
 " show menu) Just bugs me more than I'd prefer.
 set completeopt=menu,menuone
 
+" Symantic triggers for YCM.
+let g:ycm_semantic_triggers={
+  \ 'html': ['re!\s*', '<'],
+  \ 'css': ['re!^\s*', 're!:\s+']
+\ }
+
+let g:ycm_min_num_of_chars_for_completion = 1
+
 " Fix GDScript highlighting.
-au BufNewFile,BufRead *.gd set filetype=gdscript
+autocmd BufNewFile,BufRead *.gd set filetype=gdscript
+
+" Force gohtmltmpl files to use html syntax highlighting.
+autocmd BufNewFIle,BufRead *.tmpl set filetype=html
 
 " A nice colored statusline.
 let g:airline_theme = 'luna'
@@ -154,7 +166,7 @@ endif
 let $GOPATH="$HOME/src/go/"
 
 " Only autoclose tags on these file types.
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.tmpl,*.ctp"
 
 " Fancy colors fancy time!
 if has('nvim')
