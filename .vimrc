@@ -131,7 +131,7 @@ autocmd BufNewFile,BufRead *.gd set filetype=gdscript
 autocmd BufNewFIle,BufRead *.tmpl set filetype=html
 
 " A nice colored statusline.
-let g:airline_theme = 'luna'
+let g:airline_theme = 'molokai'
 
 " Remove the arrows.
 let g:airline_right_alt_sep = ''
