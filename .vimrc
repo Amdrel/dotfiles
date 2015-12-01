@@ -69,6 +69,9 @@ else
   let &t_EI = "\<Esc>[2 q"
 endif
 
+" Keyboard mappings to ex commands.
+map <C-k> :NERDTreeFocus<CR>
+
 " Generates a title for the window based on the context of the current buffer.
 " If the buffer is a new buffer, show the program name, otherwise show the
 " program name along with the buffer name prepended.
