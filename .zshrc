@@ -52,7 +52,7 @@ ZSH_CUSTOM=$HOME/.zsh_custom
 plugins=(git zsh-syntax-highlighting)
 
 # User configuration
-export GOPATH="$HOME/src/go:$HOME/bin/google-cloud-sdk/platform/google_appengine/goroot"
+export GOPATH="$HOME/src/go"
 export PATH="/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.local/bin:$HOME/bin:$HOME/bin/google-cloud-sdk/bin:$HOME/Android/Sdk/tools:$HOME/Android/Sdk/platform-tools:$HOME/src/go/bin:$HOME/bin/arduino-1.6.5:$HOME/bin/arduino-1.6.5/hardware/tools/avr/bin:/usr/bin/core_perl"
 export JAVA_HOME="/usr/java/latest"
 export ANDROID_HOME="$HOME/Android/Sdk"
