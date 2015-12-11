@@ -45,6 +45,8 @@ set autoread
 set nowrap
 set cursorline
 set wildmenu
+set ttyfast
+set lazyredraw
 
 " Screw mice, real men only use keyboards.
 set mouse-=a
@@ -175,9 +177,14 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.tmpl,*.ctp"
 if has('nvim')
   set background=dark
   colorscheme molokai
+
+  " Fix terrible hard to read cursor color.
+  hi MatchParen guifg=#F8F8F0 guibg=#444444 gui=bold
 else
   set background=dark
   colorscheme molokai
 endif
+
+" Snippets
 
 "hi Normal ctermbg=none
