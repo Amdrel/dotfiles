@@ -177,13 +177,13 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.tmpl,*.ctp"
 " Fancy colors fancy time!
 if has('nvim')
   set background=dark
-  colorscheme atom-dark
+  colorscheme badwolf
 
   " Fix terrible hard to read cursor color.
   hi MatchParen guifg=#F8F8F0 guibg=#444444 gui=bold
 else
   set background=dark
-  colorscheme atom-dark
+  colorscheme badwolf
 endif
 
 " Snippets
