@@ -29,6 +29,7 @@ Plugin 'geoffharcourt/one-dark.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'othree/html5.vim'
 Plugin 'gosukiwi/vim-atom-dark'
+Plugin 'terryma/vim-smooth-scroll'
 
 call vundle#end()
 
@@ -135,6 +136,12 @@ autocmd BufNewFile,BufRead *.gd set filetype=gdscript
 
 " Force gohtmltmpl files to use html syntax highlighting.
 autocmd BufNewFIle,BufRead *.tmpl set filetype=html
+
+" Map smooth scrolling to movement keys.
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
 " A nice colored statusline.
 let g:airline_theme = 'powerlineish'
