@@ -28,6 +28,7 @@ Plugin 'bling/vim-airline'
 Plugin 'geoffharcourt/one-dark.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'othree/html5.vim'
+Plugin 'gosukiwi/vim-atom-dark'
 
 call vundle#end()
 
@@ -136,7 +137,7 @@ autocmd BufNewFile,BufRead *.gd set filetype=gdscript
 autocmd BufNewFIle,BufRead *.tmpl set filetype=html
 
 " A nice colored statusline.
-let g:airline_theme = 'molokai'
+let g:airline_theme = 'powerlineish'
 
 " Remove the arrows.
 let g:airline_right_alt_sep = ''
@@ -176,13 +177,13 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.tmpl,*.ctp"
 " Fancy colors fancy time!
 if has('nvim')
   set background=dark
-  colorscheme molokai
+  colorscheme atom-dark
 
   " Fix terrible hard to read cursor color.
   hi MatchParen guifg=#F8F8F0 guibg=#444444 gui=bold
 else
   set background=dark
-  colorscheme molokai
+  colorscheme atom-dark
 endif
 
 " Snippets
