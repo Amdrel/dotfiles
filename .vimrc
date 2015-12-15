@@ -138,10 +138,10 @@ autocmd BufNewFile,BufRead *.gd set filetype=gdscript
 autocmd BufNewFIle,BufRead *.tmpl set filetype=html
 
 " Map smooth scrolling to movement keys.
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 1)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 1)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 2)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 2)<CR>
 
 " A nice colored statusline.
 let g:airline_theme = 'powerlineish'
