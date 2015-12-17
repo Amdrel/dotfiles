@@ -99,6 +99,9 @@ set title
 " the <html> tag should not indent.
 let g:html_indent_inctags="body,head,tbody"
 
+" I use MySQL alot.
+let g:sql_type_default = 'mysql'
+
 " 80 columns by default.
 set colorcolumn=80,100,120
 
