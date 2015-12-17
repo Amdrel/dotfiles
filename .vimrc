@@ -74,6 +74,7 @@ endif
 
 " Keyboard mappings to ex commands.
 map <C-k> :NERDTreeFocus<CR>
+map <C-h> :NERDTreeClose<CR>
 
 " Generates a title for the window based on the context of the current buffer.
 " If the buffer is a new buffer, show the program name, otherwise show the
@@ -130,11 +131,10 @@ let g:ycm_semantic_triggers={
 
 let g:ycm_min_num_of_chars_for_completion = 1
 
-" Fix GDScript highlighting.
+" Fix highlighting for select files.
 autocmd BufNewFile,BufRead *.gd set filetype=gdscript
-
-" Force gohtmltmpl files to use html syntax highlighting.
 autocmd BufNewFIle,BufRead *.tmpl set filetype=html
+autocmd BufNewFIle,BufRead *.zsh-theme set filetype=sh
 
 " A nice colored statusline.
 let g:airline_theme = 'powerlineish'
