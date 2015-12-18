@@ -73,8 +73,14 @@ else
 endif
 
 " Keyboard mappings to ex commands.
-map <C-k> :NERDTreeFocus<CR>
-map <C-h> :NERDTreeClose<CR>
+map <A-k> :NERDTreeFocus<CR>
+map <A-j> :NERDTreeClose<CR>
+
+" Window management key mappings.
+nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-j> :wincmd j<CR>
+nmap <silent> <C-k> :wincmd k<CR>
+nmap <silent> <C-l> :wincmd l<CR>
 
 " Generates a title for the window based on the context of the current buffer.
 " If the buffer is a new buffer, show the program name, otherwise show the
