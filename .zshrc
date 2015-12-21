@@ -59,6 +59,10 @@ export ANDROID_HOME="$HOME/Android/Sdk"
 export ANDROID_NDK_ROOT="$HOME/Android/Ndk"
 export EDITOR="nvim"
 
+# Set some go environment variables for gocode.
+export GOOS=$(uname | tr '[:upper:]' '[:lower:]' | tr -d '\n')
+export GOARCH=$(uname -m | tr -d '\n' | sed 's/x86_64/amd64/')
+
 # Load oh-my-zsh config.
 source $ZSH/oh-my-zsh.sh
 
