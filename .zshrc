@@ -51,19 +51,41 @@ ZSH_CUSTOM=$HOME/.zsh_custom
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-syntax-highlighting)
 
-# User configuration
+#
+# User configuration and environment variables.
+#
+
+# Non default gopath under src.
 export GOPATH="$HOME/src/go"
+
+# The prettiest path of them all.
 export PATH="/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.local/bin:$HOME/bin:$HOME/bin/google-cloud-sdk/bin:$HOME/Android/Sdk/tools:$HOME/Android/Sdk/platform-tools:$HOME/src/go/bin:$HOME/bin/arduino-1.6.5:$HOME/bin/arduino-1.6.5/hardware/tools/avr/bin:/usr/bin/core_perl"
+
+# Android environment.
 export JAVA_HOME="/usr/java/latest"
 export ANDROID_HOME="$HOME/Android/Sdk"
 export ANDROID_NDK_ROOT="$HOME/Android/Ndk"
+
+# Neovim is my default editor for all things.
 export EDITOR="nvim"
+
+# Enable golang vendoring for dependency management.
+export GO15VENDOREXPERIMENT=1
 
 # Load oh-my-zsh config.
 source $ZSH/oh-my-zsh.sh
 
-# Shell aliases
+# Shell and program aliases.
 alias la="ls -a"
+alias vi="vim"
+
+# Do not open emacs in X.
+alias emacs="emacs -nw"
+
+# AWS aliases.
+alias s3="aws s3"
+alias sqs="aws sqs"
+alias sns="aws sns"
 
 if type "nvim" > /dev/null; then
   # Got neovim, alias it out. Too lazy to type "n".
@@ -75,17 +97,6 @@ else
     alias vim="vimx"
   fi
 fi
-
-# Program aliases.
-alias vi="vim"
-
-# Do not open emacs in X.
-alias emacs="emacs -nw"
-
-# AWS aliases.
-alias s3="aws s3"
-alias sqs="aws sqs"
-alias sns="aws sns"
 
 if [[ $DESKTOP_SESSION == "i3" ]]; then
   # Startup the gnome keyring daemon when in i3.
@@ -106,7 +117,8 @@ if [ "$TERM" = "screen" ]; then
   export TERM=screen-256color
 fi
 
-[ -s "$HOME/.dnx/dnvm/dnvm.sh" ] && . "$HOME/.dnx/dnvm/dnvm.sh" # Load dnvm
+# Fix arch's incorrect terminal defaults.
+tic <(infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/')
 
 # Fix zsh syntax highlighting colors. Well by fix make them the way I like it.
 # Since I like Arch I turn all the occurences of "green" to "blue".
@@ -146,6 +158,8 @@ GCLOUD_COMP="$HOME/bin/google-cloud-sdk/completion.zsh.inc"
 
 # The next line enables shell command completion for gcloud.
 [ -s $GCLOUD_COMP ] && source $GCLOUD_COMP
+
+[ -s "$HOME/.dnx/dnvm/dnvm.sh" ] && . "$HOME/.dnx/dnvm/dnvm.sh" # Load dnvm
 
 # Load AWS completions if they exist, path may be different on Mac OSX/Darwin.
 [ -s "/usr/bin/aws_zsh_completer.sh" ] && source "/usr/bin/aws_zsh_completer.sh"

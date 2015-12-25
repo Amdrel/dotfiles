@@ -135,6 +135,7 @@ set completeopt=menu,menuone
 " Symantic triggers for YCM.
 let g:ycm_semantic_triggers={
   \ 'html': ['re!\s*', '<'],
+  \ 'gohtmltmpl': ['re!\s*', '<'],
   \ 'css': ['re!^\s*', 're!:\s+']
 \ }
 
@@ -142,11 +143,10 @@ let g:ycm_min_num_of_chars_for_completion = 1
 
 " Fix highlighting for select files.
 autocmd BufNewFile,BufRead *.gd set filetype=gdscript
-autocmd BufNewFIle,BufRead *.tmpl set filetype=html
 autocmd BufNewFIle,BufRead *.zsh-theme set filetype=sh
 
 " A nice colored statusline.
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'badwolf'
 
 " Remove the arrows.
 let g:airline_right_alt_sep = ''
