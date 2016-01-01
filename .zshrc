@@ -98,27 +98,27 @@ else
   fi
 fi
 
+# Startup the gnome keyring daemon when in i3.
 if [[ $DESKTOP_SESSION == "i3" ]]; then
-  # Startup the gnome keyring daemon when in i3.
-
   export $(/usr/bin/gnome-keyring-daemon -s)
 fi
 
+# Allow tmux to use full 256 colors. Will only be exported if there is an
+# actual tmux session, otherwise the terminal emulator picks the term.
 if ! [ -z "$TMUX" ]; then
-  # Allow tmux to use full 256 colors. Will only be exported if there is an
-  # actual tmux session, otherwise the terminal emulator picks the term.
-
   export TERM=screen-256color
 fi
 
+# Assume GNU Screen supports 256 colors. WHAT YEAR IS IT?
 if [ "$TERM" = "screen" ]; then
-  # Assume GNU Screen supports 256 colors. WHAT YEAR IS IT?
-
   export TERM=screen-256color
 fi
 
 # Fix arch's incorrect terminal defaults.
-tic <(infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/')
+# Limit to linux only as darwin freaks out about missing files.
+if uname | grep -qw 'Linux'; then
+  tic <(infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/')
+fi
 
 # Fix zsh syntax highlighting colors. Well by fix make them the way I like it.
 # Since I like Arch I turn all the occurences of "green" to "blue".
