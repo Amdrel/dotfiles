@@ -78,6 +78,7 @@ source $ZSH/oh-my-zsh.sh
 # Shell and program aliases.
 alias la="ls -a"
 alias vi="vim"
+alias ccat="pygmentize -g"
 
 # Do not open emacs in X.
 alias emacs="emacs -nw"
