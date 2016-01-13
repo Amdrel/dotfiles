@@ -75,6 +75,7 @@ endif
 " Keyboard mappings to ex commands.
 map <A-k> :NERDTreeFocus<CR>
 map <A-j> :NERDTreeClose<CR>
+map <F5> :GoRun<CR>
 
 " Window management key mappings.
 nmap <silent> <C-h> :wincmd h<CR>
@@ -178,7 +179,7 @@ if has("unix")
 endif
 
 " Set the GOPATH.
-let $GOPATH="$HOME/src/go/"
+let $GOPATH=$HOME."/src/go/"
 
 " Only autoclose tags on these file types.
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.tmpl,*.ctp"
