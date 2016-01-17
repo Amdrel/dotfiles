@@ -72,6 +72,9 @@ else
   let &t_EI = "\<Esc>[2 q"
 endif
 
+xnoremap < <gv
+xnoremap > >gv
+
 " Keyboard mappings to ex commands.
 map <A-k> :NERDTreeFocus<CR>
 map <A-j> :NERDTreeClose<CR>
