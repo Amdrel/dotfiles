@@ -29,6 +29,7 @@ Plugin 'geoffharcourt/one-dark.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'othree/html5.vim'
 Plugin 'gosukiwi/vim-atom-dark'
+Plugin 'cespare/vim-toml'
 
 call vundle#end()
 
