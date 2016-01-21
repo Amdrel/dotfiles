@@ -7,7 +7,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/MatchTagAlways'
-Plugin 'Glench/Vim-Jinja2-Syntax'
+Plugin 'mattboehm/Vim-Jinja2-Syntax'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/vim-go'
 Plugin 'mileszs/ack.vim'
@@ -140,6 +140,7 @@ set completeopt=menu,menuone
 " Symantic triggers for YCM.
 let g:ycm_semantic_triggers={
   \ 'html': ['re!\s*', '<'],
+  \ 'jinja': ['re!\s*', '<'],
   \ 'gohtmltmpl': ['re!\s*', '<'],
   \ 'css': ['re!^\s*', 're!:\s+']
 \ }
