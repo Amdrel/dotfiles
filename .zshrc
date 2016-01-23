@@ -164,3 +164,6 @@ GCLOUD_COMP="$HOME/.local/bin/google-cloud-sdk/completion.zsh.inc"
 
 # Load AWS completions if they exist, path may be different on Mac OSX/Darwin.
 [ -s "/usr/bin/aws_zsh_completer.sh" ] && source "/usr/bin/aws_zsh_completer.sh"
+
+# Use iTerm2 shell integration on Darwin if available.
+test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
