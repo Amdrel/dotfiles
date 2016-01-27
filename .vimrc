@@ -30,6 +30,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'othree/html5.vim'
 Plugin 'gosukiwi/vim-atom-dark'
 Plugin 'cespare/vim-toml'
+Plugin 'jreybert/vimagit'
 
 call vundle#end()
 
@@ -49,9 +50,6 @@ set cursorline
 set wildmenu
 set ttyfast
 set lazyredraw
-
-" Screw mice, real men only use keyboards.
-set mouse-=a
 
 " Fix neovim backups.
 set backupdir=~/.local/share/nvim/swap

@@ -59,7 +59,7 @@ plugins=(git zsh-syntax-highlighting)
 export GOPATH="$HOME/src/go"
 
 # The prettiest path of them all.
-export PATH="/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.local/bin:$HOME/.local/bin/google-cloud-sdk/bin:$HOME/Android/Sdk/tools:$HOME/Android/Sdk/platform-tools:$HOME/src/go/bin:$HOME/bin/arduino-1.6.5:$HOME/bin/arduino-1.6.5/hardware/tools/avr/bin:/usr/bin/core_perl"
+export PATH="/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.local/bin:$HOME/.local/bin/google-cloud-sdk/bin:$HOME/Android/Sdk/tools:$HOME/Android/Sdk/platform-tools:$HOME/src/go/bin:$HOME/.cargo/bin:$HOME/bin/arduino-1.6.5:$HOME/bin/arduino-1.6.5/hardware/tools/avr/bin:/usr/bin/core_perl"
 
 # Android environment.
 export JAVA_HOME="/usr/java/latest"
@@ -97,6 +97,10 @@ else
   if type "vimx" > /dev/null; then
     alias vim="vimx"
   fi
+fi
+
+if type "exa" >/dev/null; then
+  alias ls="exa"
 fi
 
 # Startup the gnome keyring daemon when in i3.
@@ -167,3 +171,5 @@ GCLOUD_COMP="$HOME/.local/bin/google-cloud-sdk/completion.zsh.inc"
 
 # Use iTerm2 shell integration on Darwin if available.
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
+
+true
