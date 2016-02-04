@@ -80,9 +80,6 @@ alias la="ls -a"
 alias vi="vim"
 alias ccat="pygmentize -g"
 
-# Do not open emacs in X.
-alias emacs="emacs -nw"
-
 # AWS aliases.
 alias s3="aws s3"
 alias sqs="aws sqs"

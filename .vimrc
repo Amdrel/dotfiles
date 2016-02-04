@@ -5,26 +5,26 @@ filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
+Plugin 'Chun-Yang/auto-pairs'
 Plugin 'Valloric/MatchTagAlways'
-Plugin 'mattboehm/Vim-Jinja2-Syntax'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'fatih/vim-go'
-Plugin 'mileszs/ack.vim'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'alvan/vim-closetag'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'tpope/vim-fugitive'
-Plugin 'quabug/vim-gdscript'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'tpope/vim-sleuth'
-Plugin 'bling/vim-airline'
-Plugin 'geoffharcourt/one-dark.vim'
-Plugin 'othree/html5.vim'
 Plugin 'cespare/vim-toml'
-Plugin 'jreybert/vimagit'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'fatih/vim-go'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'mattboehm/Vim-Jinja2-Syntax'
+Plugin 'mileszs/ack.vim'
+Plugin 'othree/html5.vim'
+Plugin 'quabug/vim-gdscript'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-sleuth'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()
 
@@ -97,6 +97,11 @@ endfunction
 " Automatically reset the title on buffer enter.
 autocmd BufEnter * let &titlestring = GetTitle()
 set title
+
+let g:html5_event_handler_attributes_complete = 0
+let g:html5_rdfa_attributes_complete = 0
+let g:html5_microdata_attributes_complete = 0
+let g:html5_aria_attributes_complete = 0
 
 " Allow auto indenting on these usually blacklisted tags. This means that only
 " the <html> tag should not indent.
