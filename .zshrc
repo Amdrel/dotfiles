@@ -77,6 +77,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Shell and program aliases.
 alias la="ls -a"
+alias ll="ls -al"
 alias vi="vim"
 alias ccat="pygmentize -g"
 
@@ -98,6 +99,7 @@ fi
 
 if type "exa" >/dev/null; then
   alias ls="exa"
+  alias ll="exa -lag"
 fi
 
 # Startup the gnome keyring daemon when in i3.
