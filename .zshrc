@@ -124,6 +124,12 @@ if uname | grep -qw 'Linux'; then
   tic <(infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/')
 fi
 
+# Add /usr/local/lib for Mac OS X so I can link with libraries installed
+# through homebrew.
+if uname | grep -qw 'Darwin'; then
+  export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
+fi
+
 # Fix zsh syntax highlighting colors. Well by fix make them the way I like it.
 # Since I like Arch I turn all the occurences of "green" to "blue".
 #ZSH_HIGHLIGHT_STYLES[default]=none
