@@ -102,6 +102,10 @@ if type "exa" >/dev/null; then
   alias ll="exa -lag"
 fi
 
+if [ -f /etc/profile.d/vte.sh ]; then
+  . /etc/profile.d/vte.sh
+fi
+
 # Startup the gnome keyring daemon when in i3.
 if [[ $DESKTOP_SESSION == "i3" ]]; then
   export $(/usr/bin/gnome-keyring-daemon -s)
