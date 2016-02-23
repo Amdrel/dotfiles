@@ -15,7 +15,7 @@ ZSH_THEME="gitster"
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -27,7 +27,7 @@ ZSH_THEME="gitster"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -122,10 +122,43 @@ if [ "$TERM" = "screen" ]; then
   export TERM=screen-256color
 fi
 
-# Fix arch's incorrect terminal defaults.
-# Limit to linux only as darwin freaks out about missing files.
 if uname | grep -qw 'Linux'; then
+  # Fix arch's incorrect terminal defaults.
+  # Limit to linux only as darwin freaks out about missing devices.
   tic <(infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/')
+
+  # Distribution specific configs.
+  if [ -f /etc/arch-release ]; then
+    # Fix zsh syntax highlighting colors. Well by fix make them the way I like it.
+    # Since I like Arch I turn all the occurences of "green" to "blue".
+    ZSH_HIGHLIGHT_STYLES[default]=none
+    ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=red,bold
+    ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=yellow
+    ZSH_HIGHLIGHT_STYLES[alias]=fg=cyan
+    ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=cyan
+    ZSH_HIGHLIGHT_STYLES[builtin]=fg=cyan
+    ZSH_HIGHLIGHT_STYLES[function]=fg=cyan
+    ZSH_HIGHLIGHT_STYLES[command]=fg=cyan
+    ZSH_HIGHLIGHT_STYLES[precommand]=fg=cyan
+    ZSH_HIGHLIGHT_STYLES[commandseparator]=none
+    ZSH_HIGHLIGHT_STYLES[hashed-command]=fg=cyan
+    ZSH_HIGHLIGHT_STYLES[path]=none
+    ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+    ZSH_HIGHLIGHT_STYLES[path_approx]=fg=yellow
+    ZSH_HIGHLIGHT_STYLES[globbing]=fg=cyan
+    ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=cyan
+    ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=none
+    ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=none
+    ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
+    ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=green
+    ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=green
+    ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=green
+    ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=cyan
+    ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=cyan
+    ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=cyan
+    ZSH_HIGHLIGHT_STYLES[assign]=none
+    ZSH_HIGHLIGHT_STYLES[redirection]=none
+  fi
 fi
 
 # Add /usr/local/lib for Mac OS X so I can link with libraries installed
@@ -133,36 +166,6 @@ fi
 if uname | grep -qw 'Darwin'; then
   export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 fi
-
-# Fix zsh syntax highlighting colors. Well by fix make them the way I like it.
-# Since I like Arch I turn all the occurences of "green" to "blue".
-ZSH_HIGHLIGHT_STYLES[default]=none
-ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=red,bold
-ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=yellow
-ZSH_HIGHLIGHT_STYLES[alias]=fg=cyan
-ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=cyan
-ZSH_HIGHLIGHT_STYLES[builtin]=fg=cyan
-ZSH_HIGHLIGHT_STYLES[function]=fg=cyan
-ZSH_HIGHLIGHT_STYLES[command]=fg=cyan
-ZSH_HIGHLIGHT_STYLES[precommand]=fg=cyan
-ZSH_HIGHLIGHT_STYLES[commandseparator]=none
-ZSH_HIGHLIGHT_STYLES[hashed-command]=fg=cyan
-ZSH_HIGHLIGHT_STYLES[path]=none
-ZSH_HIGHLIGHT_STYLES[path_prefix]=none
-ZSH_HIGHLIGHT_STYLES[path_approx]=fg=yellow
-ZSH_HIGHLIGHT_STYLES[globbing]=fg=cyan
-ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=cyan
-ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=none
-ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=none
-ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=green
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=green
-ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=green
-ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=cyan
-ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=cyan
-ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=cyan
-ZSH_HIGHLIGHT_STYLES[assign]=none
-ZSH_HIGHLIGHT_STYLES[redirection]=none
 
 GCLOUD_PATH="$HOME/.local/bin/google-cloud-sdk/path.zsh.inc"
 GCLOUD_COMP="$HOME/.local/bin/google-cloud-sdk/completion.zsh.inc"
