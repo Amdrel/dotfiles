@@ -162,9 +162,13 @@ if uname | grep -qw 'Linux'; then
 fi
 
 # Add /usr/local/lib for Mac OS X so I can link with libraries installed
-# through homebrew.
+# through homebrew, along with setting some other variables for clang and gcc.
+#
+# Mac OS X is a screwed up unix :-).
 if uname | grep -qw 'Darwin'; then
   export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
+  export C_INCLUDE_PATH="$C_INCLUDE_PATH:/usr/local/include"
+  export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:/usr/local/include"
 fi
 
 GCLOUD_PATH="$HOME/.local/bin/google-cloud-sdk/path.zsh.inc"
