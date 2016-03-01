@@ -166,9 +166,9 @@ fi
 #
 # Mac OS X is a screwed up unix :-).
 if uname | grep -qw 'Darwin'; then
-  export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
-  export C_INCLUDE_PATH="$C_INCLUDE_PATH:/usr/local/include"
-  export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:/usr/local/include"
+  export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib:/opt/local/lib"
+  export C_INCLUDE_PATH="$C_INCLUDE_PATH:/usr/local/include:/opt/local/include"
+  export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:/usr/local/include:/opt/local/include"
 fi
 
 GCLOUD_PATH="$HOME/.local/bin/google-cloud-sdk/path.zsh.inc"
