@@ -67,6 +67,7 @@ else
   let &t_EI = "\<Esc>[2 q"
 endif
 
+" Keep selection when reindenting blocks of selected text.
 xnoremap < <gv
 xnoremap > >gv
 
