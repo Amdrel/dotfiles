@@ -97,11 +97,6 @@ else
   fi
 fi
 
-if type "exa" >/dev/null; then
-  alias ls="exa"
-  alias ll="exa -lag"
-fi
-
 if [ -f /etc/profile.d/vte.sh ]; then
   . /etc/profile.d/vte.sh
 fi
