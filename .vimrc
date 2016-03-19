@@ -12,6 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'alvan/vim-closetag'
 Plugin 'beyondmarc/glsl.vim'
 Plugin 'cespare/vim-toml'
+Plugin 'chriskempson/base16-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fatih/vim-go'
 Plugin 'flazz/vim-colorschemes'
@@ -153,7 +154,7 @@ autocmd BufNewFile,BufRead *.gd set filetype=gdscript
 autocmd BufNewFIle,BufRead *.zsh-theme set filetype=sh
 
 " A nice colored statusline.
-let g:airline_theme = 'badwolf'
+let g:airline_theme = 'base16'
 
 " Remove the arrows.
 let g:airline_right_alt_sep = ''
@@ -193,13 +194,13 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.tmpl,*.ctp"
 " Fancy colors fancy time!
 if has('nvim')
   set background=dark
-  colorscheme badwolf
+  colorscheme base16-default
 
   " Fix terrible hard to read cursor color.
   hi MatchParen guifg=#F8F8F0 guibg=#444444 gui=bold
 else
   set background=dark
-  colorscheme badwolf
+  colorscheme base16-default
 endif
 
 " Snippets
