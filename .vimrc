@@ -200,6 +200,7 @@ if has('nvim')
   hi MatchParen guifg=#F8F8F0 guibg=#444444 gui=bold
 else
   set background=dark
+  let base16colorspace=256
   colorscheme base16-default
 endif
 
