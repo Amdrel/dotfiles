@@ -97,6 +97,17 @@ else
   fi
 fi
 
+# On my arch system I have large packages such as the unity engine installed.
+# As a result of this, the pkgbuild process requires more space than my
+# available ram. I have a special /ptmp directory that is like /tmp but
+# writes to disk instead.
+PERSISTENT_TMP=/ptmp
+if which pacaur > /dev/null 2>&1 && [ -d $PERSISTENT_TMP ]; then
+  export AURDEST=$PERSISTENT_TMP/pacaurtmp-$USER
+fi
+
+# Load the vte script so linux distributions with evil defaults
+# terminals work properly
 if [ -f /etc/profile.d/vte.sh ]; then
   . /etc/profile.d/vte.sh
 fi
