@@ -148,6 +148,7 @@ let g:ycm_semantic_triggers={
 \ }
 
 let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_path_to_python_interpreter = "/usr/bin/python3"
 
 " Fix highlighting for select files.
 autocmd BufNewFile,BufRead *.gd set filetype=gdscript
