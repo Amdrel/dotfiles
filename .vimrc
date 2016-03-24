@@ -149,7 +149,20 @@ let g:ycm_semantic_triggers={
 
 " YCM completion options. Includes fixes for omnisharp as well.
 let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_path_to_python_interpreter = "/usr/bin/python3"
+
+" So basically python can be stored in more than one area. Let's at least
+" check two spots then quit.
+let source_candidate = "/usr/local/bin/python2"
+let system_candidate = "/usr/bin/python2"
+
+" Windows users be out of luck here. I'll port this entire config to windows
+" if an evil person ever forces me to use it willingly (I'd probably just
+" switch to a virtual machine).
+if filereadable(source_candidate)
+  let g:ycm_path_to_python_interpreter = source_candidate
+elseif filereadable(system_candidate)
+  let g:ycm_path_to_python_interpreter = system_candidate
+endif
 
 " Fix highlighting for select files.
 autocmd BufNewFile,BufRead *.gd set filetype=gdscript
