@@ -211,6 +211,9 @@ if has('nvim')
   set background=dark
   colorscheme base16-default
 
+  " Sakura uses C-H for backspace. Make it work!
+  nmap <BS> <C-W>h
+
   " Fix terrible hard to read cursor color.
   hi MatchParen guifg=#F8F8F0 guibg=#444444 gui=bold
 else
