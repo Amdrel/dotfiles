@@ -6,6 +6,7 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'Chun-Yang/auto-pairs'
+Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'VundleVim/Vundle.vim'
@@ -17,6 +18,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fatih/vim-go'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'hail2u/vim-css3-syntax'
+Plugin 'honza/vim-snippets'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'mattboehm/Vim-Jinja2-Syntax'
 Plugin 'mileszs/ack.vim'
@@ -46,6 +48,7 @@ set autoread
 set nowrap
 set cursorline
 set wildmenu
+set relativenumber
 set ttyfast
 set lazyredraw
 
@@ -138,6 +141,11 @@ set ttimeoutlen=0
 " Complete options (disable preview scratch window, longest removed to aways
 " show menu) Just bugs me more than I'd prefer.
 set completeopt=menu,menuone
+
+" Trigger configuration for UltiSnips.
+let g:UltiSnipsExpandTrigger="<c-a>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Symantic triggers for YCM.
 let g:ycm_semantic_triggers={
