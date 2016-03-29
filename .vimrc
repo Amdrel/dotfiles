@@ -50,7 +50,7 @@ set cursorline
 set wildmenu
 set relativenumber
 set ttyfast
-set lazyredraw
+"set lazyredraw
 
 " Fix neovim backups.
 set backupdir=~/.local/share/nvim/swap
