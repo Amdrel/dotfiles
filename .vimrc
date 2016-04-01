@@ -7,6 +7,7 @@ call vundle#begin()
 
 Plugin 'Chun-Yang/auto-pairs'
 Plugin 'Quramy/tsuquyomi'
+Plugin 'Shougo/vimproc.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'Valloric/YouCompleteMe'
@@ -21,6 +22,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'honza/vim-snippets'
 Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'mattboehm/Vim-Jinja2-Syntax'
 Plugin 'mileszs/ack.vim'
 Plugin 'othree/html5.vim'
@@ -230,6 +232,7 @@ endif
 " Fix highlighting for select files.
 autocmd BufNewFile,BufRead *.gd set filetype=gdscript
 autocmd BufNewFIle,BufRead *.zsh-theme set filetype=sh
+autocmd BufNewFIle,BufRead app.component set filetype=typescript
 
 " A nice colored statusline.
 let g:airline_theme = 'base16'
