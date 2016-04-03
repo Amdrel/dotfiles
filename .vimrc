@@ -255,7 +255,3 @@ let $GOPATH=$HOME."/src/go/"
 
 " Only autoclose tags on these file types.
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.tmpl,*.ctp"
-
-" Snippets
-
-"hi Normal ctermbg=none
