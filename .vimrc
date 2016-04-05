@@ -1,6 +1,10 @@
 set nocompatible
 filetype off
 
+" Add the cabal bin to the path incase it isn't already there. I use a
+" .desktop wrapper for neovim so I miss out on some environment variables.
+let $PATH .= ':'.$HOME.'/.cabal/bin'
+
 " Required Vundle setup.
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -17,6 +21,7 @@ Plugin 'beyondmarc/glsl.vim'
 Plugin 'cespare/vim-toml'
 Plugin 'chriskempson/base16-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'eagletmt/neco-ghc'
 Plugin 'fatih/vim-go'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'hail2u/vim-css3-syntax'
@@ -209,7 +214,8 @@ let g:ycm_semantic_triggers={
   \ 'html': ['re!\s*', '<'],
   \ 'jinja': ['re!\s*', '<'],
   \ 'gohtmltmpl': ['re!\s*', '<'],
-  \ 'css': ['re!^\s*', 're!:\s+']
+  \ 'css': ['re!^\s*', 're!:\s+'],
+  \ 'haskell': ['.']
 \ }
 
 " YCM completion options. Includes fixes for omnisharp as well.
@@ -233,6 +239,10 @@ endif
 autocmd BufNewFile,BufRead *.gd set filetype=gdscript
 autocmd BufNewFIle,BufRead *.zsh-theme set filetype=sh
 autocmd BufNewFIle,BufRead app.component set filetype=typescript
+
+" Disable haskell-vim omnifunc.
+let g:haskellmode_completion_ghc = 0
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 " A nice colored statusline.
 let g:airline_theme = 'base16'
