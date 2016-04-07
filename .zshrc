@@ -177,7 +177,7 @@ if uname | grep -qw 'Darwin'; then
   export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:/usr/local/include:/opt/local/include"
 fi
 
-# gcloud completion. (I'm testing GPG signing shhhh....) again... Another one...
+# gcloud completion. (I'm testing GPG signing shhhh....)
 GCLOUD_PATH="$HOME/.local/bin/google-cloud-sdk/path.zsh.inc"
 GCLOUD_COMP="$HOME/.local/bin/google-cloud-sdk/completion.zsh.inc"
 
