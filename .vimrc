@@ -48,6 +48,9 @@ syntax on
 " Fix crappy Mac OS X defaults.
 set backspace=indent,eol,start
 
+" Keyboards are for men and mice for wee babies.
+set mouse-=a
+
 " Fix status bar behavior.
 set laststatus=2
 
