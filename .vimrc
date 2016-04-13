@@ -219,7 +219,7 @@ let g:ycm_semantic_triggers={
   \ 'jinja': ['re!\s*', '<'],
   \ 'gohtmltmpl': ['re!\s*', '<'],
   \ 'css': ['re!^\s*', 're!:\s+'],
-  \ 'haskell': ['.']
+  \ 'haskell': ['.'],
 \ }
 
 " YCM completion options. Includes fixes for omnisharp as well.
@@ -251,11 +251,8 @@ autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 " A nice colored statusline.
 let g:airline_theme = 'base16'
 
-" Remove the stupid arrows; the fonts always look off anyway.
-let g:airline_right_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_left_alt_sep= ''
-let g:airline_left_sep = ''
+" Let's give powerline a spin.
+let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
