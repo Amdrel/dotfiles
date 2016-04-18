@@ -257,6 +257,9 @@ autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 " A nice colored statusline.
 let g:airline_theme = 'base16'
 
+" Enable the airline tabline.
+let g:airline#extensions#tabline#enabled = 1
+
 " Let's give powerline a spin.
 let g:airline_powerline_fonts = 1
 
