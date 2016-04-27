@@ -1,5 +1,4 @@
 set nocompatible
-filetype off
 
 " Add the cabal bin to the path incase it isn't already there. I use a
 " .desktop wrapper for neovim so I miss out on some environment variables.
@@ -9,38 +8,47 @@ let $PATH .= ':'.$HOME.'/.cabal/bin'
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'Chun-Yang/auto-pairs'
-Plugin 'Quramy/tsuquyomi'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'Valloric/MatchTagAlways'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'alvan/vim-closetag'
-Plugin 'beyondmarc/glsl.vim'
-Plugin 'cespare/vim-toml'
-Plugin 'chrisbra/Colorizer'
-Plugin 'chriskempson/base16-vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'eagletmt/neco-ghc'
-Plugin 'fatih/vim-go'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'honza/vim-snippets'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'mattboehm/Vim-Jinja2-Syntax'
-Plugin 'mileszs/ack.vim'
-Plugin 'othree/html5.vim'
-Plugin 'quabug/vim-gdscript'
-Plugin 'rust-lang/rust.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-sleuth'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+" Syntax highlighting.
+Plugin 'beyondmarc/glsl.vim'         " GLSL syntax highlighting
+Plugin 'cespare/vim-toml'            " TOML syntax highlighting
+Plugin 'hail2u/vim-css3-syntax'      " Better CSS syntax highlighting
+Plugin 'leafgarland/typescript-vim'  " Typescript syntax highlighting
+Plugin 'mattboehm/Vim-Jinja2-Syntax' " Jinja2 syntax highlighting
+Plugin 'quabug/vim-gdscript'         " GDScript syntax highlighting
+Plugin 'rust-lang/rust.vim'          " Rust Syntax highlighting
+
+" Editing.
+Plugin 'Chun-Yang/auto-pairs'         " Match commonly paired characters
+Plugin 'SirVer/ultisnips'             " Snippets for most languages
+Plugin 'Valloric/MatchTagAlways'      " Matches visible html tags
+Plugin 'alvan/vim-closetag'           " Close html tags automatically
+Plugin 'chrisbra/Colorizer'           " CSS hex highlighter
+Plugin 'fatih/vim-go'                 " Golang IDE/like features
+Plugin 'honza/vim-snippets'           " Snippets for ultisnips
+Plugin 'hynek/vim-python-pep8-indent' " Fix for python indentation
+Plugin 'tpope/vim-sleuth'             " File indentation detection
+Plugin 'tpope/vim-surround'           " Allow easy surrounding edits
+
+" Omni-completion.
+Plugin 'Quramy/tsuquyomi'       " Typescript omni-completion
+Plugin 'Valloric/YouCompleteMe' " Smart omni-completion w/ popup
+Plugin 'eagletmt/neco-ghc'      " Haskell omni-completion
+Plugin 'othree/html5.vim'       " HTML5 omni-complete
+
+" Themes.
+Plugin 'chriskempson/base16-vim' " Base16 theme for vim
+Plugin 'flazz/vim-colorschemes'  " Every known colorscheme
+
+" Utility.
+Plugin 'Shougo/vimproc.vim'             " Asynchronous execution library
+Plugin 'VundleVim/Vundle.vim'           " Plugin manager for vim
+Plugin 'airblade/vim-gitgutter'         " Display changed lines in gutter
+Plugin 'ctrlpvim/ctrlp.vim'             " File fuzzy finder
+Plugin 'mileszs/ack.vim'                " Frontend for ag grepping
+Plugin 'scrooloose/nerdtree'            " File viewer for current dir
+Plugin 'tpope/vim-fugitive'             " Embedded git client
+Plugin 'vim-airline/vim-airline'        " Fancy statusline
+Plugin 'vim-airline/vim-airline-themes' " Themes for airline
 
 call vundle#end()
 
@@ -133,7 +141,7 @@ if has('nvim')
   tnoremap <C-X> <C-\><C-n>
 
   " Sakura uses C-H for backspace. Make it work!
-  nmap <BS> <C-W>h
+  "nmap <BS> <C-W>h
 
   " Change cursor to line cursor while in insert mode. Neovim has first class
   " support for this and may work with more terminals.
@@ -221,10 +229,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Symantic triggers for YCM.
 let g:ycm_semantic_triggers={
-  \ 'html': ['re!\s*', '<'],
-  \ 'jinja': ['re!\s*', '<'],
-  \ 'gohtmltmpl': ['re!\s*', '<'],
-  \ 'css': ['re!^\s*', 're!:\s+'],
   \ 'haskell': ['.'],
 \ }
 
