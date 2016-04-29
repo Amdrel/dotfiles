@@ -150,7 +150,7 @@ if has('nvim')
 
   " Use a full color colorscheme with neovim.
   set background=dark
-  colorscheme base16-default
+  colorscheme base16-atelierplateau
 
   " Fix terrible hard to read cursor color.
   hi MatchParen guifg=#F8F8F0 guibg=#444444 gui=bold
@@ -166,7 +166,7 @@ else
   " Non true color colorscheme since vim does not support true color.
   set background=dark
   let base16colorspace=256
-  colorscheme base16-default
+  colorscheme base16-atelierplateau
 endif
 
 " Do OS specific configurations here.
@@ -259,13 +259,23 @@ let g:haskellmode_completion_ghc = 0
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 " A nice colored statusline.
-let g:airline_theme = 'base16'
+let g:airline_theme = 'base16_default'
 
 " Enable the airline tabline.
 let g:airline#extensions#tabline#enabled = 1
 
-" Let's give powerline a spin.
-let g:airline_powerline_fonts = 1
+" No powerline today.
+let g:airline_powerline_fonts = 0
+
+" Empty separators for powerline.
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
