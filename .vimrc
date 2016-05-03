@@ -150,7 +150,7 @@ if has('nvim')
 
   " Use a full color colorscheme with neovim.
   set background=dark
-  colorscheme base16-atelierplateau
+  colorscheme base16-brewer
 
   " Fix terrible hard to read cursor color.
   hi MatchParen guifg=#F8F8F0 guibg=#444444 gui=bold
@@ -183,9 +183,25 @@ if has("unix")
     set clipboard=unnamedplus
 
     " Get the_silver_surfer working with vim.
-    let g:ackprg = "ag --vimgrep"
+    if executable('ag')
+      let g:ackprg = "ag --vimgrep"
+    endif
   endif
 endif
+
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" Bind K to grep the word under the cursor.
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " Keep selection when reindenting blocks of selected text.
 xnoremap < <gv
