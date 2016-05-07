@@ -26,6 +26,7 @@ Plugin 'chrisbra/Colorizer'           " CSS hex highlighter
 Plugin 'fatih/vim-go'                 " Golang IDE/like features
 Plugin 'honza/vim-snippets'           " Snippets for ultisnips
 Plugin 'hynek/vim-python-pep8-indent' " Fix for python indentation
+Plugin 'itchyny/vim-haskell-indent'   " Fix haskell indentation
 Plugin 'tpope/vim-sleuth'             " File indentation detection
 Plugin 'tpope/vim-surround'           " Allow easy surrounding edits
 
