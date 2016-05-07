@@ -141,8 +141,9 @@ if has('nvim')
   " Provide an easy way to escape the terminal.
   tnoremap <C-X> <C-\><C-n>
 
-  " Sakura uses C-H for backspace. Make it work!
-  "nmap <BS> <C-W>h
+  " Sakura and iTerm2 uses C-H for backspace since they are sane terminals.
+  " Let's map it to move to left window.
+  nmap <BS> <C-W>h
 
   " Change cursor to line cursor while in insert mode. Neovim has first class
   " support for this and may work with more terminals.
@@ -151,7 +152,7 @@ if has('nvim')
 
   " Use a full color colorscheme with neovim.
   set background=dark
-  colorscheme base16-brewer
+  colorscheme base16-google
 
   " Fix terrible hard to read cursor color.
   hi MatchParen guifg=#F8F8F0 guibg=#444444 gui=bold
@@ -167,7 +168,7 @@ else
   " Non true color colorscheme since vim does not support true color.
   set background=dark
   let base16colorspace=256
-  colorscheme base16-atelierplateau
+  colorscheme base16-google
 endif
 
 " Do OS specific configurations here.
