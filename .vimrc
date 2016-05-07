@@ -152,7 +152,7 @@ if has('nvim')
 
   " Use a full color colorscheme with neovim.
   set background=dark
-  colorscheme base16-google
+  colorscheme base16-tomorrow
 
   " Fix terrible hard to read cursor color.
   hi MatchParen guifg=#F8F8F0 guibg=#444444 gui=bold
@@ -168,7 +168,7 @@ else
   " Non true color colorscheme since vim does not support true color.
   set background=dark
   let base16colorspace=256
-  colorscheme base16-google
+  colorscheme base16-tomorrow
 endif
 
 " Do OS specific configurations here.
