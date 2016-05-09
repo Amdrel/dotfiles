@@ -255,8 +255,8 @@ let g:ycm_min_num_of_chars_for_completion = 1
 
 " So basically python can be stored in more than one area. Let's at least
 " check two spots then quit.
-let source_candidate = "/usr/local/bin/python2"
-let system_candidate = "/usr/bin/python2"
+let source_candidate = "/usr/local/bin/python3"
+let system_candidate = "/usr/bin/python3"
 
 " Windows users are out of luck here. I'll port this entire config to windows
 " if an evil person ever forces me to use it willingly (I'd probably just
