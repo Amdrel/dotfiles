@@ -14,7 +14,7 @@ Plugin 'cespare/vim-toml'            " TOML syntax highlighting
 Plugin 'hail2u/vim-css3-syntax'      " Better CSS syntax highlighting
 Plugin 'leafgarland/typescript-vim'  " Typescript syntax highlighting
 Plugin 'mattboehm/Vim-Jinja2-Syntax' " Jinja2 syntax highlighting
-Plugin 'quabug/vim-gdscript'         " GDScript syntax highlighting
+Plugin 'a-watson/vim-gdscript'       " GDScript syntax highlighting
 Plugin 'rust-lang/rust.vim'          " Rust Syntax highlighting
 
 " Editing.
@@ -152,7 +152,7 @@ if has('nvim')
 
   " Use a full color colorscheme with neovim.
   set background=dark
-  colorscheme base16-tomorrow
+  colorscheme base16-eighties
 
   " Fix terrible hard to read cursor color.
   hi MatchParen guifg=#F8F8F0 guibg=#444444 gui=bold
@@ -168,7 +168,7 @@ else
   " Non true color colorscheme since vim does not support true color.
   set background=dark
   let base16colorspace=256
-  colorscheme base16-tomorrow
+  colorscheme base16-eighties
 endif
 
 " Do OS specific configurations here.
@@ -242,8 +242,8 @@ let g:sql_type_default = 'mysql'
 
 " Trigger configuration for UltiSnips.
 let g:UltiSnipsExpandTrigger="<c-a>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " Symantic triggers for YCM.
 let g:ycm_semantic_triggers={
