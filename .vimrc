@@ -276,6 +276,8 @@ autocmd BufNewFIle,BufRead app.component set filetype=typescript
 let g:haskellmode_completion_ghc = 0
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
+let g:ycm_rust_src_path = '/usr/local/rust/rustc-1.8.0/src'
+
 " A nice colored statusline.
 let g:airline_theme = 'base16_default'
 
