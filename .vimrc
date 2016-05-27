@@ -9,12 +9,13 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Syntax highlighting.
+Plugin 'a-watson/vim-gdscript'       " GDScript syntax highlighting
 Plugin 'beyondmarc/glsl.vim'         " GLSL syntax highlighting
 Plugin 'cespare/vim-toml'            " TOML syntax highlighting
 Plugin 'hail2u/vim-css3-syntax'      " Better CSS syntax highlighting
 Plugin 'leafgarland/typescript-vim'  " Typescript syntax highlighting
 Plugin 'mattboehm/Vim-Jinja2-Syntax' " Jinja2 syntax highlighting
-Plugin 'a-watson/vim-gdscript'       " GDScript syntax highlighting
+Plugin 'pangloss/vim-javascript'     " Improved javascript highlighting
 Plugin 'rust-lang/rust.vim'          " Rust Syntax highlighting
 
 " Editing.
@@ -272,6 +273,13 @@ autocmd BufNewFile,BufRead *.gd set filetype=gdscript
 autocmd BufNewFIle,BufRead *.zsh-theme set filetype=sh
 autocmd BufNewFIle,BufRead app.component set filetype=typescript
 
+" Fix CSS highlighting due to problems with vim priorities.
+augroup VimCSS3Syntax
+  autocmd!
+
+  autocmd FileType css setlocal iskeyword+=-
+augroup END
+
 " Disable haskell-vim omnifunc.
 let g:haskellmode_completion_ghc = 0
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
@@ -279,7 +287,7 @@ autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 let g:ycm_rust_src_path = '/usr/local/rust/rustc-1.8.0/src'
 
 " A nice colored statusline.
-let g:airline_theme = 'base16_default'
+let g:airline_theme = 'base16_eighties'
 
 " Enable the airline tabline.
 let g:airline#extensions#tabline#enabled = 1
