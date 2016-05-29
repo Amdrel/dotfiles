@@ -182,8 +182,17 @@ if has("unix")
   " there.
   if os == 'Darwin' || os == 'Mac'
     set clipboard=unnamed
+
+    " YCM won't compile with python 3 on mac for mystical reasons.
+    let source_candidate = "/usr/local/bin/python"
+    let system_candidate = "/usr/bin/python"
   elseif os == 'Linux' || os == 'FreeBSD' || os == 'OpenBSD' || os == 'NetBSD'
     set clipboard=unnamedplus
+
+    " So basically python can be stored in more than one area. Let's at least
+    " check two spots then quit.
+    let source_candidate = "/usr/local/bin/python3"
+    let system_candidate = "/usr/bin/python3"
 
     " Get the_silver_surfer working with vim.
     if executable('ag')
@@ -253,11 +262,6 @@ let g:ycm_semantic_triggers={
 
 " YCM completion options. Includes fixes for omnisharp as well.
 let g:ycm_min_num_of_chars_for_completion = 1
-
-" So basically python can be stored in more than one area. Let's at least
-" check two spots then quit.
-let source_candidate = "/usr/local/bin/python3"
-let system_candidate = "/usr/bin/python3"
 
 " Windows users are out of luck here. I'll port this entire config to windows
 " if an evil person ever forces me to use it willingly (I'd probably just
