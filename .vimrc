@@ -15,6 +15,7 @@ Plugin 'cespare/vim-toml'            " TOML syntax highlighting
 Plugin 'hail2u/vim-css3-syntax'      " Better CSS syntax highlighting
 Plugin 'leafgarland/typescript-vim'  " Typescript syntax highlighting
 Plugin 'mattboehm/Vim-Jinja2-Syntax' " Jinja2 syntax highlighting
+Plugin 'mxw/vim-jsx'                 " JSX highlighting (for react)
 Plugin 'pangloss/vim-javascript'     " Improved javascript highlighting
 Plugin 'rust-lang/rust.vim'          " Rust Syntax highlighting
 
@@ -289,6 +290,7 @@ let g:haskellmode_completion_ghc = 0
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 let g:ycm_rust_src_path = '/usr/local/rust/rustc-1.8.0/src'
+let g:jsx_ext_required = 0
 
 " A nice colored statusline.
 let g:airline_theme = 'base16_eighties'
