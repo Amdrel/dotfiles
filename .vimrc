@@ -46,6 +46,7 @@ Plugin 'flazz/vim-colorschemes'  " Every known colorscheme
 Plugin 'Shougo/vimproc.vim'             " Asynchronous execution library
 Plugin 'VundleVim/Vundle.vim'           " Plugin manager for vim
 Plugin 'airblade/vim-gitgutter'         " Display changed lines in gutter
+Plugin 'artnez/vim-wipeout'             " Allows closing of hidden buffers
 Plugin 'ctrlpvim/ctrlp.vim'             " File fuzzy finder
 Plugin 'mileszs/ack.vim'                " Frontend for ag grepping
 Plugin 'scrooloose/nerdtree'            " File viewer for current dir
