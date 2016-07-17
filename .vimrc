@@ -32,12 +32,6 @@ Plugin 'itchyny/vim-haskell-indent'   " Fix haskell indentation
 Plugin 'tpope/vim-sleuth'             " File indentation detection
 Plugin 'tpope/vim-surround'           " Allow easy surrounding edits
 
-" Omni-completion.
-Plugin 'Quramy/tsuquyomi'       " Typescript omni-completion
-Plugin 'Valloric/YouCompleteMe' " Smart omni-completion w/ popup
-Plugin 'eagletmt/neco-ghc'      " Haskell omni-completion
-Plugin 'othree/html5.vim'       " HTML5 omni-complete
-
 " Themes.
 Plugin 'chriskempson/base16-vim' " Base16 theme for vim
 Plugin 'flazz/vim-colorschemes'  " Every known colorscheme
@@ -53,6 +47,11 @@ Plugin 'scrooloose/nerdtree'            " File viewer for current dir
 Plugin 'tpope/vim-fugitive'             " Embedded git client
 Plugin 'vim-airline/vim-airline'        " Fancy statusline
 Plugin 'vim-airline/vim-airline-themes' " Themes for airline
+
+" Omni-completion.
+Plugin 'Valloric/YouCompleteMe' " Smart omni-completion w/ popup
+Plugin 'eagletmt/neco-ghc'      " Haskell omni-completion
+Plugin 'othree/html5.vim'       " HTML5 omni-complete
 
 call vundle#end()
 
