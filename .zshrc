@@ -86,6 +86,18 @@ alias s3="aws s3"
 alias sqs="aws sqs"
 alias sns="aws sns"
 
+# Utility commands.
+
+# Updates all docker images from docker.io.
+docker_update_images() {
+  docker images | grep "^docker\.io" | awk '{img=$1":"$2; print img}' | xargs -L1 docker pull
+}
+
+# DANGER: May break existing containers. Removes old docker images.
+docker_cleanup() {
+  docker images | grep "^<none>" | awk '{print $3}' | xargs -L1 docker rmi
+}
+
 if type "nvim" > /dev/null; then
   # Got neovim, alias it out. Too lazy to type "n".
   alias vim="nvim"
