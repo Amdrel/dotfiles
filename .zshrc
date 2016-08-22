@@ -189,16 +189,6 @@ if uname | grep -qw 'Darwin'; then
   export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:/usr/local/include:/opt/local/include"
 fi
 
-# gcloud completion.
-GCLOUD_PATH="$HOME/.local/bin/google-cloud-sdk/path.zsh.inc"
-GCLOUD_COMP="$HOME/.local/bin/google-cloud-sdk/completion.zsh.inc"
-
-# The next line updates PATH for the Google Cloud SDK.
-[ -s $GCLOUD_PATH ] && source $GCLOUD_COMP
-
-# The next line enables shell command completion for gcloud.
-[ -s $GCLOUD_COMP ] && source $GCLOUD_COMP
-
 [ -s "$HOME/.dnx/dnvm/dnvm.sh" ] && . "$HOME/.dnx/dnvm/dnvm.sh" # Load dnvm
 
 # Load AWS completions if they exist, path may be different on Mac OSX/Darwin.
@@ -206,5 +196,15 @@ GCLOUD_COMP="$HOME/.local/bin/google-cloud-sdk/completion.zsh.inc"
 
 # Use iTerm2 shell integration on Darwin if available.
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
+
+# gcloud completion.
+GCLOUD_PATH="$HOME/.local/bin/google-cloud-sdk/path.zsh.inc"
+GCLOUD_COMP="$HOME/.local/bin/google-cloud-sdk/completion.zsh.inc"
+
+# The next line updates PATH for the Google Cloud SDK.
+[ -s $GCLOUD_PATH ] && source $GCLOUD_PATH
+
+# The next line enables shell command completion for gcloud.
+[ -s $GCLOUD_COMP ] && source $GCLOUD_COMP
 
 true
