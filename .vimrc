@@ -159,7 +159,7 @@ if has('nvim')
 
   " Use a full color colorscheme with neovim.
   set background=dark
-  colorscheme base16-eighties
+  colorscheme base16-oceanicnext
 
   " Fix terrible hard to read cursor color.
   hi MatchParen guifg=#F8F8F0 guibg=#444444 gui=bold
@@ -175,7 +175,7 @@ else
   " Non true color colorscheme since vim does not support true color.
   set background=dark
   let base16colorspace=256
-  colorscheme base16-eighties
+  colorscheme base16-oceanicnext
 endif
 
 " Do OS specific configurations here.
@@ -298,7 +298,7 @@ let g:ycm_rust_src_path = '/usr/local/rust/rustc-1.10.0/src'
 let g:jsx_ext_required = 0
 
 " A nice colored statusline.
-let g:airline_theme = 'base16_eighties'
+let g:airline_theme = 'base16_ocean'
 
 " Enable the airline tabline.
 let g:airline#extensions#tabline#enabled = 1
