@@ -155,6 +155,8 @@ if has('nvim')
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
+  set termguicolors
+
   " Use a full color colorscheme with neovim.
   set background=dark
   colorscheme base16-eighties
