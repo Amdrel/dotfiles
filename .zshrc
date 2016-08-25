@@ -189,6 +189,11 @@ if uname | grep -qw 'Darwin'; then
   export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:/usr/local/include:/opt/local/include"
 fi
 
+# Prepend the ruby gems path if ruby and rubygems is installed.
+if which ruby >/dev/null && which gem >/dev/null; then
+  PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
+
 [ -s "$HOME/.dnx/dnvm/dnvm.sh" ] && . "$HOME/.dnx/dnvm/dnvm.sh" # Load dnvm
 
 # Load AWS completions if they exist, path may be different on Mac OSX/Darwin.
