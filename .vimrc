@@ -294,7 +294,7 @@ augroup END
 let g:haskellmode_completion_ghc = 0
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
-let g:ycm_rust_src_path = '/usr/local/rust/rustc-1.10.0/src'
+let g:ycm_rust_src_path = '/usr/local/rust/rustc-1.11.0/src'
 let g:jsx_ext_required = 0
 
 " A nice colored statusline.
