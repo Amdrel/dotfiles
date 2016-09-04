@@ -59,7 +59,7 @@ plugins=(git zsh-syntax-highlighting)
 export GOPATH="$HOME/src/go"
 
 # The prettiest path of them all.
-export PATH="/usr/lib64/qt-3.3/bin:/usr/local/go/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.local/bin:$HOME/.local/bin/google-cloud-sdk/bin:$HOME/.local/bin/go_appengine:$HOME/Android/Sdk/tools:$HOME/Android/Sdk/platform-tools:$HOME/src/go/bin:$HOME/.cargo/bin:$HOME/bin/arduino-1.6.5:$HOME/bin/arduino-1.6.5/hardware/tools/avr/bin:/usr/bin/core_perl:$HOME/.cabal/bin"
+export PATH="/usr/lib64/qt-3.3/bin:/usr/local/go/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.local/bin:$HOME/.local/bin/google-cloud-sdk/bin:$HOME/.local/bin/google-cloud-sdk/platform/google_appengine:$HOME/Android/Sdk/tools:$HOME/Android/Sdk/platform-tools:$HOME/src/go/bin:$HOME/.cargo/bin:$HOME/bin/arduino-1.6.5:$HOME/bin/arduino-1.6.5/hardware/tools/avr/bin:/usr/bin/core_perl:$HOME/.cabal/bin"
 
 # Android environment.
 export JAVA_HOME="/usr/java/latest"
@@ -194,7 +194,8 @@ if which ruby >/dev/null && which gem >/dev/null; then
   PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
-[ -s "$HOME/.dnx/dnvm/dnvm.sh" ] && . "$HOME/.dnx/dnvm/dnvm.sh" # Load dnvm
+# Load dnvm for .NET.
+[ -s "$HOME/.dnx/dnvm/dnvm.sh" ] && . "$HOME/.dnx/dnvm/dnvm.sh"
 
 # Load AWS completions if they exist, path may be different on Mac OSX/Darwin.
 [ -s "/usr/bin/aws_zsh_completer.sh" ] && source "/usr/bin/aws_zsh_completer.sh"
@@ -202,14 +203,12 @@ fi
 # Use iTerm2 shell integration on Darwin if available.
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 
-# gcloud completion.
+# Updates PATH for the Google Cloud SDK.
 GCLOUD_PATH="$HOME/.local/bin/google-cloud-sdk/path.zsh.inc"
-GCLOUD_COMP="$HOME/.local/bin/google-cloud-sdk/completion.zsh.inc"
-
-# The next line updates PATH for the Google Cloud SDK.
 [ -s $GCLOUD_PATH ] && source $GCLOUD_PATH
 
-# The next line enables shell command completion for gcloud.
+# Enables shell command completion for gcloud.
+GCLOUD_COMP="$HOME/.local/bin/google-cloud-sdk/completion.zsh.inc"
 [ -s $GCLOUD_COMP ] && source $GCLOUD_COMP
 
 true
