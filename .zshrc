@@ -80,6 +80,7 @@ alias la="ls -a"
 alias ll="ls -al"
 alias vi="vim"
 alias ccat="pygmentize -g"
+alias tmux="env TERM=xterm-256color tmux"
 
 # AWS aliases.
 alias s3="aws s3"
@@ -132,7 +133,7 @@ fi
 # Allow tmux to use full 256 colors. Will only be exported if there is an
 # actual tmux session, otherwise the terminal emulator picks the term.
 if ! [ -z "$TMUX" ]; then
-  export TERM=screen-256color
+  export TERM=xterm-256color
 fi
 
 # Assume GNU Screen supports 256 colors. WHAT YEAR IS IT?
