@@ -52,6 +52,7 @@ Plugin 'vim-airline/vim-airline-themes' " Themes for airline
 Plugin 'Valloric/YouCompleteMe' " Smart omni-completion w/ popup
 Plugin 'eagletmt/neco-ghc'      " Haskell omni-completion
 Plugin 'othree/html5.vim'       " HTML5 omni-complete
+Plugin 'baabelfish/nvim-nim'    " Nim IDE utilities
 
 call vundle#end()
 
