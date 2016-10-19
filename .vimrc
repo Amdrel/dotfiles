@@ -2,7 +2,7 @@ set nocompatible
 
 " Add the cabal bin to the path incase it isn't already there. I use a
 " .desktop wrapper for neovim so I miss out on some environment variables.
-let $PATH .= ':'.$HOME.'/.cabal/bin'
+let $PATH .= ':'.$HOME.'/.cabal/bin'.':'.$HOME.'/.nimble/bin'.':'.$HOME.'/.local/bin/nim/bin'
 
 " Required Vundle setup.
 set runtimepath+=~/.vim/bundle/Vundle.vim
@@ -17,7 +17,8 @@ Plugin 'leafgarland/typescript-vim'  " Typescript syntax highlighting
 Plugin 'mattboehm/Vim-Jinja2-Syntax' " Jinja2 syntax highlighting
 Plugin 'mxw/vim-jsx'                 " JSX highlighting (for react)
 Plugin 'pangloss/vim-javascript'     " Improved javascript highlighting
-Plugin 'rust-lang/rust.vim'          " Rust Syntax highlighting
+Plugin 'rust-lang/rust.vim'          " Rust syntax highlighting
+Plugin 'zah/nim.vim'                 " Nim syntax highlighting
 
 " Editing.
 Plugin 'Chun-Yang/auto-pairs'         " Match commonly paired characters
@@ -52,7 +53,6 @@ Plugin 'vim-airline/vim-airline-themes' " Themes for airline
 Plugin 'Valloric/YouCompleteMe' " Smart omni-completion w/ popup
 Plugin 'eagletmt/neco-ghc'      " Haskell omni-completion
 Plugin 'othree/html5.vim'       " HTML5 omni-complete
-Plugin 'baabelfish/nvim-nim'    " Nim IDE utilities
 
 call vundle#end()
 
