@@ -99,6 +99,21 @@ docker_cleanup() {
   docker images | grep "^<none>" | awk '{print $3}' | xargs -L1 docker rmi
 }
 
+gopen() {
+  # Extract and build a url from the git repo configuration.
+  url=$(git config remote.origin.url)
+  endpoint=$(echo $url | grep -Po '(?<=:).+' | sed 's/\.git//')
+  address="https://$(echo $url | grep -Po '(?<=@).+(?=:)')/$endpoint"
+
+  # Depending on the platform, use either xdg or OSX open to open the web
+  # address in the default web browser.
+  if [[ `uname` == 'Linux' ]]; then
+    xdg-open $address
+  elif [[ `uname` == 'Darwin' ]]; then
+    open $address
+  fi
+}
+
 if type "nvim" > /dev/null; then
   # Got neovim, alias it out. Too lazy to type "n".
   alias vim="nvim"
