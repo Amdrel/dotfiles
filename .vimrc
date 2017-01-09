@@ -121,6 +121,15 @@ set lazyredraw
 " Fix neovim backups.
 set backupdir=~/.local/share/nvim/swap
 
+" Set's some code style settings for when working in the linux kernel. This
+" function is called manually before I start working on the kernel.
+function LoadLinuxKernelDefaults()
+  set noexpandtab
+  set shiftwidth=8
+  set softtabstop=8
+  set tabstop=8
+endfunction
+
 " Generates a title for the window based on the context of the current buffer.
 " If the buffer is a new buffer, show the program name, otherwise show the
 " program name along with the buffer name prepended.
@@ -160,7 +169,7 @@ if has('nvim')
 
   " Use a full color colorscheme with neovim.
   set background=dark
-  colorscheme base16-oceanicnext
+  colorscheme base16-onedark
 
   " Fix terrible hard to read cursor color.
   hi MatchParen guifg=#F8F8F0 guibg=#444444 gui=bold
@@ -176,7 +185,7 @@ else
   " Non true color colorscheme since vim does not support true color.
   set background=dark
   let base16colorspace=256
-  colorscheme base16-oceanicnext
+  colorscheme base16-onedark
 endif
 
 " Do OS specific configurations here.
@@ -299,7 +308,7 @@ let g:ycm_rust_src_path = '/usr/local/rust/rustc-current/src'
 let g:jsx_ext_required = 0
 
 " A nice colored statusline.
-let g:airline_theme = 'base16_ocean'
+let g:airline_theme = 'base16_ashes'
 
 " Enable the airline tabline.
 let g:airline#extensions#tabline#enabled = 1
