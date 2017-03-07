@@ -337,4 +337,4 @@ let g:airline_symbols.branch = '⎇ '
 let $GOPATH=$HOME."/src/go/"
 
 " Only autoclose tags on these file types.
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.tmpl,*.ctp"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.tmpl,*.ctp,*.erb"
