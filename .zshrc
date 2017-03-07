@@ -217,8 +217,13 @@ fi
 # Load AWS completions if they exist, path may be different on Mac OSX/Darwin.
 [ -s "/usr/bin/aws_zsh_completer.sh" ] && source "/usr/bin/aws_zsh_completer.sh"
 
-# Use iTerm2 shell integration on Darwin if available.
-test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
+# Use iTerm2 shell integration on Darwin if available and only if not logged in
+# over ssh to prevent prompt corruption.
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  # Logged in over ssh.
+else
+  test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
+fi
 
 # Updates PATH for the Google Cloud SDK.
 GCLOUD_PATH="$HOME/.local/bin/google-cloud-sdk/path.zsh.inc"
