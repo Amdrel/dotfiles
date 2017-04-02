@@ -61,6 +61,12 @@ export GOPATH="$HOME/src/go"
 # The prettiest path of them all.
 export PATH="/usr/lib64/qt-3.3/bin:/usr/local/go/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.local/bin:$HOME/.local/bin/nim/bin:$HOME/.local/bin/google-cloud-sdk/bin:$HOME/.local/bin/google-cloud-sdk/platform/google_appengine:$HOME/Android/Sdk/tools:$HOME/Android/Sdk/platform-tools:$HOME/src/go/bin:$HOME/.cargo/bin:$HOME/bin/arduino-1.6.5:$HOME/bin/arduino-1.6.5/hardware/tools/avr/bin:/usr/bin/core_perl:$HOME/.cabal/bin:$HOME/.nimble/bin"
 
+# Add linuxbrew to the path if it exists.
+if [ `uname` = 'Linux' ] && [ -d "$HOME/.linuxbrew" ]; then
+  export PATH="$HOME/.linuxbrew/bin:$PATH"
+  export XDG_DATA_DIRS="$HOME/.linuxbrew/share:$XDG_DATA_DIRS"
+fi
+
 # Android environment.
 export JAVA_HOME="/usr/java/latest"
 export ANDROID_HOME="$HOME/Android/Sdk"
