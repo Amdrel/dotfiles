@@ -54,6 +54,9 @@ Plugin 'Valloric/YouCompleteMe' " Smart omni-completion w/ popup
 Plugin 'eagletmt/neco-ghc'      " Haskell omni-completion
 Plugin 'othree/html5.vim'       " HTML5 omni-complete
 
+" Linting
+Plugin 'neomake/neomake' "Async linting for various languages
+
 call vundle#end()
 
 filetype plugin indent on
@@ -111,7 +114,7 @@ set cursorline
 " Wildmenu creates a tab menu similar to fish and zsh. Also add some
 " additional rules for case insensitivity.
 set wildmenu
-set ignorecase
+set noignorecase
 set infercase
 
 " Optimizations, useful for large files with multiple syntax highlighters.
