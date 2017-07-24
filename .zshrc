@@ -105,6 +105,10 @@ docker_cleanup() {
   docker images | grep "^<none>" | awk '{print $3}' | xargs -L1 docker rmi
 }
 
+rebuild_gems() {
+  gem pristine 2> >(grep -o "gem pristine.*") | zsh
+}
+
 gopen() {
   # Extract and build a url from the git repo configuration.
   url=$(git config remote.origin.url)
