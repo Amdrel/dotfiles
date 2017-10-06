@@ -49,7 +49,7 @@ ZSH_CUSTOM=$HOME/.zsh_custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux zsh-syntax-highlighting)
+plugins=(git tmux docker zsh-syntax-highlighting)
 
 #
 # User configuration and environment variables.
@@ -242,5 +242,18 @@ GCLOUD_PATH="$HOME/.local/bin/google-cloud-sdk/path.zsh.inc"
 # Enables shell command completion for gcloud.
 GCLOUD_COMP="$HOME/.local/bin/google-cloud-sdk/completion.zsh.inc"
 [ -s $GCLOUD_COMP ] && source $GCLOUD_COMP
+
+export NVM_DIR="$HOME/.nvm"
+export NVM_SYMLINK_CURRENT=true
+export PATH="$HOME/.nvm/current/bin:$PATH"
+
+# Lazy load nvm only when invoked to prevent long startup times. Since
+# NVM_SYMLINK_CURRENT is present the "current" symlink can be used until nvm is
+# invoked and replaces it with the explicit path.
+nvm() {
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  nvm "$@"
+}
 
 true
