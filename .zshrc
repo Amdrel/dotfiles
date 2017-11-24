@@ -251,9 +251,16 @@ export PATH="$HOME/.nvm/current/bin:$PATH"
 # NVM_SYMLINK_CURRENT is present the "current" symlink can be used until nvm is
 # invoked and replaces it with the explicit path.
 nvm() {
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-  nvm "$@"
+  if [ -s "$NVM_DIR/nvm.sh" ]; then
+    source "$NVM_DIR/nvm.sh"
+    if [ -s "$NVM_DIR/bash_completion" ]; then
+      source "$NVM_DIR/bash_completion"
+    fi
+
+    nvm "$@"
+  else
+    echo "nvm is not installed"
+  fi
 }
 
 true

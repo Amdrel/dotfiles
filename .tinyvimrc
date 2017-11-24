@@ -1,0 +1,105 @@
+set nocompatible
+
+filetype plugin indent on
+syntax on
+
+" Fix crappy Mac OS X defaults.
+set backspace=indent,eol,start
+
+set mouse-=a
+set laststatus=2
+set tabstop=4
+set shiftwidth=4
+set scrolloff=3
+set colorcolumn=80,100,120
+
+" Get rid of lag for exiting visual mode.
+set timeoutlen=1000
+set ttimeoutlen=0
+
+" Complete options (disable preview scratch window).
+set completeopt=menu,menuone
+
+set hlsearch
+set expandtab
+set nu
+set relativenumber
+set autoindent
+set autoread
+set nowrap
+set cursorline
+set title
+
+" Wildmenu creates a tab menu similar to fish and zsh. Also add some
+" additional rules for case insensitivity.
+set wildmenu
+set noignorecase
+set infercase
+
+" Optimizations, useful for large files with multiple syntax highlighters.
+set ttyfast
+set lazyredraw
+
+" Keep selection when reindenting blocks of selected text.
+xnoremap < <gv
+xnoremap > >gv
+
+" Window management key mappings so there's no need to press C-W to switch
+" buffers. C-hjkl can be used to switch between buffers with these mappings.
+nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-j> :wincmd j<CR>
+nmap <silent> <C-k> :wincmd k<CR>
+nmap <silent> <C-l> :wincmd l<CR>
+
+" Vim distribution specific configurations.
+if has('nvim')
+  let g:prog_name = "Neovim"
+
+  " Provide an easy way to escape the terminal.
+  tnoremap <C-X> <C-\><C-n>
+
+  " Sakura and iTerm2 uses C-H for backspace since they are sane terminals.
+  " Let's map it to move to left window.
+  nmap <BS> <C-W>h
+
+  " Change cursor to line cursor while in insert mode. Neovim has first class
+  " support for this and may work with more terminals.
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+  set termguicolors
+
+  " Fix terrible hard to read cursor color.
+  hi MatchParen guifg=#F8F8F0 guibg=#444444 gui=bold
+else
+  let g:prog_name = "Vim"
+
+  " Allows vanilla vim to switch the cursor type on insert and back on return
+  " to normal mode. This terminal hack that may not work for all.
+  let &t_SI = "\<Esc>[6 q"
+  let &t_SR = "\<Esc>[4 q"
+  let &t_EI = "\<Esc>[2 q"
+endif
+
+" Setup clipboard to work on linux, bsds, and darwin.
+if has("unix")
+  let os=substitute(system('uname'), '\n', '', '')
+
+  if os == 'Darwin' || os == 'Mac'
+    set clipboard=unnamed
+  elseif os == 'Linux' || os == 'FreeBSD' || os == 'OpenBSD' || os == 'NetBSD'
+    set clipboard=unnamedplus
+  endif
+endif
+
+" Generates a title for the window based on the context of the current buffer.
+function! GetTitle()
+  let buffer_name = expand("%:t")
+
+  if len(buffer_name) <= 0
+    return g:prog_name
+  else
+    return buffer_name . " - " . g:prog_name
+  endif
+endfunction
+autocmd BufEnter * let &titlestring = GetTitle()
