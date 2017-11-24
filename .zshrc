@@ -208,7 +208,7 @@ if uname | grep -qw 'Darwin'; then
 fi
 
 # Prepend the ruby gems path if ruby and rubygems is installed.
-if which ruby 2&>/dev/null && which gem >/dev/null; then
+if which ruby > /dev/null 2>&1 && which gem >/dev/null; then
   PATH="$(gem environment | grep 'EXECUTABLE DIRECTORY' | cut -d: -f2 | sed 's/^\s//g'):$PATH"
   PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
