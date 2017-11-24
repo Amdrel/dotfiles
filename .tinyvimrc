@@ -27,8 +27,8 @@ set relativenumber
 set autoindent
 set autoread
 set nowrap
-set cursorline
 set title
+set cursorline
 
 " Wildmenu creates a tab menu similar to fish and zsh. Also add some
 " additional rules for case insensitivity.
@@ -67,18 +67,11 @@ if has('nvim')
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-  set termguicolors
-
   " Fix terrible hard to read cursor color.
   hi MatchParen guifg=#F8F8F0 guibg=#444444 gui=bold
+  set termguicolors
 else
   let g:prog_name = "Vim"
-
-  " Allows vanilla vim to switch the cursor type on insert and back on return
-  " to normal mode. This terminal hack that may not work for all.
-  let &t_SI = "\<Esc>[6 q"
-  let &t_SR = "\<Esc>[4 q"
-  let &t_EI = "\<Esc>[2 q"
 endif
 
 " Setup clipboard to work on linux, bsds, and darwin.
@@ -92,6 +85,9 @@ if has("unix")
   endif
 endif
 
+set background=dark
+colorscheme slate
+
 " Generates a title for the window based on the context of the current buffer.
 function! GetTitle()
   let buffer_name = expand("%:t")
@@ -103,3 +99,13 @@ function! GetTitle()
   endif
 endfunction
 autocmd BufEnter * let &titlestring = GetTitle()
+
+" Override some theme defaults to make vim more pleasing to the eye.
+function! SetHighlights()
+  highlight Normal ctermbg=234
+  highlight clear CursorLine
+  highlight CursorLine ctermbg=236
+  highlight ColorColumn ctermbg=236
+endfunction
+autocmd VimEnter * call SetHighlights()
+call SetHighlights()

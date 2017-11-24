@@ -72,9 +72,6 @@ export JAVA_HOME="/usr/java/latest"
 export ANDROID_HOME="$HOME/Android/Sdk"
 export ANDROID_NDK_ROOT="$HOME/Android/Ndk"
 
-# Neovim is my default editor for all things.
-export EDITOR="nvim"
-
 # Enable golang vendoring for dependency management.
 export GO15VENDOREXPERIMENT=1
 
@@ -125,14 +122,9 @@ gopen() {
 }
 
 if type "nvim" > /dev/null; then
-  # Got neovim, alias it out. Too lazy to type "n".
-  alias vim="nvim"
+  export EDITOR="nvim"
 else
-  # Get X11 support in vim if neovim is not present. If vimx is not avaliable
-  # either screw X11 support.
-  if type "vimx" > /dev/null; then
-    alias vim="vimx"
-  fi
+  export EDITOR="vim"
 fi
 
 # On my arch system I have large packages such as the unity engine installed.
@@ -166,13 +158,13 @@ if [ "$TERM" = "screen" ]; then
   export TERM=screen-256color
 fi
 
+# Distribution specific configs.
 if uname | grep -qw 'Linux'; then
-  # Fix arch's incorrect terminal defaults.
-  # Limit to linux only as darwin freaks out about missing devices.
-  tic <(infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/')
-
-  # Distribution specific configs.
   if [ -f /etc/arch-release ]; then
+    # Fix arch's incorrect terminal defaults. Limit to linux only as darwin
+    # freaks out about missing devices.
+    tic <(infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/')
+
     # Fix zsh syntax highlighting colors. Well by fix make them the way I like it.
     # Since I like Arch I turn all the occurences of "green" to "blue".
     ZSH_HIGHLIGHT_STYLES[default]=none
@@ -216,7 +208,7 @@ if uname | grep -qw 'Darwin'; then
 fi
 
 # Prepend the ruby gems path if ruby and rubygems is installed.
-if which ruby >/dev/null && which gem >/dev/null; then
+if which ruby 2&>/dev/null && which gem >/dev/null; then
   PATH="$(gem environment | grep 'EXECUTABLE DIRECTORY' | cut -d: -f2 | sed 's/^\s//g'):$PATH"
   PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
