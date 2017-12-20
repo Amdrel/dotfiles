@@ -48,6 +48,7 @@ Plugin 'scrooloose/nerdtree'            " File viewer for current dir
 Plugin 'tpope/vim-fugitive'             " Embedded git client
 Plugin 'vim-airline/vim-airline'        " Fancy statusline
 Plugin 'vim-airline/vim-airline-themes' " Themes for airline
+Plugin 'jceb/vim-orgmode'               " Org-Mode for vim
 
 " Omni-completion.
 Plugin 'Valloric/YouCompleteMe' " Smart omni-completion w/ popup
@@ -250,7 +251,7 @@ nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 
 " Automatically load css colors behind hex codes on file open.
 let g:colorizer_auto_filetype='css,html'

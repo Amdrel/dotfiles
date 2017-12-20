@@ -121,11 +121,19 @@ gopen() {
   fi
 }
 
+# Use neovim as the default editor if availabe, if not default back to vim as
+# it's usually available on most systems.
 if type "nvim" > /dev/null; then
   export EDITOR="nvim"
 else
   export EDITOR="vim"
 fi
+
+# Adds 'clog' alias which can be used for writing daily logs concerning
+# day-to-day activities.
+export LOG_DIR=$HOME/Log
+mkdir -p $LOG_DIR
+alias clog="$EDITOR $LOG_DIR/$(date -I).md"
 
 # On my arch system I have large packages such as the unity engine installed.
 # As a result of this, the pkgbuild process requires more space than my
