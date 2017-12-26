@@ -49,7 +49,7 @@ ZSH_CUSTOM=$HOME/.zsh_custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux docker zsh-syntax-highlighting)
+plugins=(git tmux docker zsh-syntax-highlighting colored-man-pages)
 
 #
 # User configuration and environment variables.
