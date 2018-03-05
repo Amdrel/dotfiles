@@ -263,4 +263,13 @@ nvm() {
   fi
 }
 
+# Fix electron under Ubuntu.
+export XDG_CONFIG_DIRS=""
+export GTK2_RC_FILES=""
+
+# Pyenv pathing for python version management.
+export PATH="/home/walter/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 true
