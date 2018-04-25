@@ -9,7 +9,6 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Syntax highlighting.
-Plugin 'a-watson/vim-gdscript'       " GDScript syntax highlighting
 Plugin 'beyondmarc/glsl.vim'         " GLSL syntax highlighting
 Plugin 'cespare/vim-toml'            " TOML syntax highlighting
 Plugin 'hail2u/vim-css3-syntax'      " Better CSS syntax highlighting
