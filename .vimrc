@@ -63,70 +63,44 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 
-" Fix crappy Mac OS X defaults.
-set backspace=indent,eol,start
-
-" Keyboards are for men and mice for wee babies.
-set mouse-=a
-
-" Fix status bar behavior.
-set laststatus=2
-
-" 80 columns by default.
-set colorcolumn=80,100,120
-
-" Never let the cursor hit the very bottom of the screen.
-set scrolloff=3
-
-" Highlight search terms, because that should happen.
-set hlsearch
-
-" Use 4 space spaces indentation by default, sleuth will automatically set
-" these depending on the source file indentation it detects.
+" Default indentation settings (sleuth overrides per buffer).
 set expandtab
 set tabstop=4
 set shiftwidth=4
 
-" Get rid of lag for exiting visual mode. May also affect other things that I
-" am not aware of.
+" Fix crappy Mac OS X defaults.
+set backspace=indent,eol,start
+
+" Visual mode lag workaround.
 set timeoutlen=1000
 set ttimeoutlen=0
 
-" Complete options (disable preview scratch window, longest removed to aways
-" show menu) Just bugs me more than I'd prefer.
+set mouse-=a
+set laststatus=2
+set colorcolumn=80,100,120
+set scrolloff=3
+set hlsearch
 set completeopt=menu,menuone
-
-" Setup relative line numbers for each buffer.
 set nu
 set relativenumber
-
-" Retain indentation when inserting new lines.
 set autoindent
-
-" Reload changed files if possible.
 set autoread
-
-" Disable line wrapping.
 set nowrap
-
-" Highlight the current line where the cursor is.
 set cursorline
-
-" Wildmenu creates a tab menu similar to fish and zsh. Also add some
-" additional rules for case insensitivity.
 set wildmenu
 set noignorecase
 set infercase
-
-" Optimizations, useful for large files with multiple syntax highlighters.
 set ttyfast
 set lazyredraw
+set signcolumn=yes
+set title
 
 " Fix neovim backups.
 set backupdir=~/.local/share/nvim/swap
 
 " Set's some code style settings for when working in the linux kernel. This
-" function is called manually before I start working on the kernel.
+" can be made automatic at some point by checking if we're in a git repo or
+" something else equally hacky.
 function LoadLinuxKernelDefaults()
   set noexpandtab
   set shiftwidth=8
@@ -134,30 +108,25 @@ function LoadLinuxKernelDefaults()
   set tabstop=8
 endfunction
 
-" Generates a title for the window based on the context of the current buffer.
-" If the buffer is a new buffer, show the program name, otherwise show the
-" program name along with the buffer name prepended.
+" Generates a title for the window based on buffer contents.
 function! GetTitle()
   let buffer_name = expand("%:t")
 
   if len(buffer_name) <= 0
-    " No buffer name so just return the program name.
     return g:prog_name
   else
-    " Prepend the buffer name to the program name.
     return buffer_name . " - " . g:prog_name
   endif
 endfunction
 
 " Automatically reset the title on buffer enter.
 autocmd BufEnter * let &titlestring = GetTitle()
-set title
 
 " Vim distribution specific configurations.
 if has('nvim')
   let g:prog_name = "Neovim"
 
-  " Provide an easy way to escape the terminal.
+  " Provide an easy way to escape the built-in terminal.
   tnoremap <C-X> <C-\><C-n>
 
   " Sakura and iTerm2 uses C-H for backspace since they are sane terminals.
@@ -169,9 +138,8 @@ if has('nvim')
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-  set termguicolors
-
   " Use a full color colorscheme with neovim.
+  set termguicolors
   set background=dark
   colorscheme base16-onedark
 
@@ -196,25 +164,17 @@ endif
 if has("unix")
   let os=substitute(system('uname'), '\n', '', '')
 
-  " Copy to the X11 clipboard, may work with XWayland once my nvidia gpu
-  " supports wayland. On Mac OS X use unnamed instead. If on Windows sorry,
-  " don't use so I do not know how to get native clipboard support working
-  " there.
+  " Support system clipboard on Mac OS and X11 *nix. Also works with XWayland.
+  " Windows clipboard integration currently doesn't work.
   if os == 'Darwin' || os == 'Mac'
     set clipboard=unnamed
-
-    " YCM won't compile with python 3 on mac for mystical reasons.
-    let source_candidate = "/usr/local/bin/python"
+    let source_candidate = "/usr/local/bin/python" " Python3 + Mac OS = hell.
     let system_candidate = "/usr/bin/python"
   elseif os == 'Linux' || os == 'FreeBSD' || os == 'OpenBSD' || os == 'NetBSD'
     set clipboard=unnamedplus
-
-    " So basically python can be stored in more than one area. Let's at least
-    " check two spots then quit.
     let source_candidate = "/usr/local/bin/python3"
     let system_candidate = "/usr/bin/python3"
 
-    " Get the_silver_surfer working with vim.
     if executable('ag')
       let g:ackprg = "ag --vimgrep"
     endif
@@ -222,18 +182,10 @@ if has("unix")
 endif
 
 if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
+  set grepprg=ag\ --nogroup\ --nocolor " Use ag over grep
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""' "Use ag in CtrlP
+  let g:ctrlp_use_caching = 0 " ag don't need no caching (it's fast)
 endif
-
-" Bind K to grep the word under the cursor.
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " Keep selection when reindenting blocks of selected text.
 xnoremap < <gv
@@ -244,33 +196,23 @@ map <A-k> :NERDTreeFocus<CR>
 map <A-j> :NERDTreeClose<CR>
 map <F5> :GoRun<CR>
 
-" Window management key mappings. No longer do you need to press C-W to switch
-" buffers. C-hjkl can be used to switch between buffers with these mappings.
+" Window management key mappings so C-W doesn't need to be used in certain
+" scenarios. C-hjkl can be used to switch between buffers with these mappings.
+"
+" C-h may not work for some terminals as it's interpreted as BS, so BS is
+" mapped to C-W h if this is the case (see above).
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
-set signcolumn=yes
-
-" Automatically load css colors behind hex codes on file open.
-let g:colorizer_auto_filetype='css,html'
-
-" Tweak the html5 completion to be a little more sane by getting rid of useless
-" cruft that isn't used often like aria tags.
+let g:colorizer_auto_filetype='css,html' " CSS hex color backgrounds.
 let g:html5_event_handler_attributes_complete = 0
 let g:html5_rdfa_attributes_complete = 0
 let g:html5_microdata_attributes_complete = 0
 let g:html5_aria_attributes_complete = 0
-
-" Allow auto indenting on these usually blacklisted tags. This means that only
-" the <html> tag should not indent.
 let g:html_indent_inctags="body,head,tbody"
-
-" I use MySQL alot.
 let g:sql_type_default = 'mysql'
-
-" Trigger configuration for UltiSnips.
 let g:UltiSnipsExpandTrigger="<c-a>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
@@ -279,13 +221,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:ycm_semantic_triggers={
   \ 'haskell': ['.'],
 \ }
-
-" YCM completion options. Includes fixes for omnisharp as well.
 let g:ycm_min_num_of_chars_for_completion = 1
 
-" Windows users are out of luck here. I'll port this entire config to windows
-" if an evil person ever forces me to use it willingly (I'd probably just
-" switch to a virtual machine).
+" YCM is configured only to with with *nix at the moment.
 if filereadable(source_candidate)
   let g:ycm_path_to_python_interpreter = source_candidate
 elseif filereadable(system_candidate)
@@ -300,7 +238,6 @@ autocmd BufNewFIle,BufRead app.component set filetype=typescript
 " Fix CSS highlighting due to problems with vim priorities.
 augroup VimCSS3Syntax
   autocmd!
-
   autocmd FileType css setlocal iskeyword+=-
 augroup END
 
@@ -310,17 +247,9 @@ autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 let g:ycm_rust_src_path = '/usr/local/rust/rustc-current/src'
 let g:jsx_ext_required = 0
-
-" A nice colored statusline.
 let g:airline_theme = 'base16_ashes'
-
-" Enable the airline tabline.
 let g:airline#extensions#tabline#enabled = 1
-
-" No powerline today.
 let g:airline_powerline_fonts = 0
-
-" Empty separators for powerline.
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#right_sep = ''
@@ -334,11 +263,7 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
-" Set custom airline symbols.
 let g:airline_symbols.branch = '⎇ '
-
-" Set the GOPATH.
-let $GOPATH=$HOME."/src/go/"
-
-" Only autoclose tags on these file types.
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.tmpl,*.ctp,*.erb"
+
+let $GOPATH=$HOME."/src/go/"
