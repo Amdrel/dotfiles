@@ -83,7 +83,7 @@ alias la="ls -a"
 alias ll="ls -al"
 alias vi="vim"
 alias ccat="pygmentize -g"
-alias tmux="env TERM=xterm-256color tmux"
+# alias tmux="env TERM=xterm-256color tmux"
 
 # AWS aliases.
 alias s3="aws s3"
