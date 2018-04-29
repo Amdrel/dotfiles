@@ -269,7 +269,10 @@ export GTK2_RC_FILES=""
 
 # Pyenv pathing for python version management.
 export PATH="/home/walter/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+
+if hash pyenv 2>/dev/null; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
 
 true
