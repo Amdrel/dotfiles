@@ -267,8 +267,8 @@ nvm() {
 export XDG_CONFIG_DIRS=""
 export GTK2_RC_FILES=""
 
-# Pyenv pathing for python version management.
-export PATH="/home/walter/.pyenv/bin:$PATH"
+# Add pyenv to the path so multiple python versions can be accessed.
+export PATH="$HOME/.pyenv/shims:$PATH"
 
 if hash pyenv 2>/dev/null; then
   eval "$(pyenv init -)"
