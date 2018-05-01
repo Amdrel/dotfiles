@@ -133,7 +133,7 @@ fi
 # day-to-day activities.
 export LOG_DIR=$HOME/Log
 mkdir -p $LOG_DIR
-alias clog="$EDITOR $LOG_DIR/$(date -I).md"
+alias clog="$EDITOR $LOG_DIR/$(date "+%Y-%m-%d").md"
 
 # On my arch system I have large packages such as the unity engine installed.
 # As a result of this, the pkgbuild process requires more space than my
@@ -213,6 +213,7 @@ if uname | grep -qw 'Darwin'; then
   export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib:/opt/local/lib"
   export C_INCLUDE_PATH="$C_INCLUDE_PATH:/usr/local/include:/opt/local/include"
   export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:/usr/local/include:/opt/local/include"
+  export SDKROOT="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk"
 fi
 
 # Prepend the ruby gems path if ruby and rubygems is installed.
