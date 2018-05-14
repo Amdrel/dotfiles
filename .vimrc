@@ -91,7 +91,6 @@ set noignorecase
 set infercase
 set ttyfast
 set lazyredraw
-set signcolumn=yes
 set title
 
 " Fix neovim backups.
@@ -136,6 +135,8 @@ if has('nvim')
   " support for this and may work with more terminals.
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+  set signcolumn=yes
 
   " Use a full color colorscheme with neovim.
   set termguicolors
