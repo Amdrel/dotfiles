@@ -51,6 +51,10 @@ ZSH_CUSTOM=$HOME/.zsh_custom
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git tmux docker zsh-syntax-highlighting colored-man-pages)
 
+# Search for custom zsh completions stored in the home directory.
+fpath=(~/.zsh/completions $fpath)
+autoload -U compinit && compinit
+
 #
 # User configuration and environment variables.
 #
@@ -274,6 +278,12 @@ export PATH="$HOME/.pyenv/shims:$PATH"
 if hash pyenv 2>/dev/null; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
+fi
+
+if [ -d $HOME/.private-zshrc.d ]; then
+  for file in $HOME/.private-zshrc.d/*.zsh; do
+    source $file
+  done
 fi
 
 true

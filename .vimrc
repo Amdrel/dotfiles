@@ -74,7 +74,7 @@ set backspace=indent,eol,start
 set timeoutlen=1000
 set ttimeoutlen=0
 
-set mouse-=a
+set mouse=a
 set laststatus=2
 set colorcolumn=80,100,120
 set scrolloff=3
