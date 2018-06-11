@@ -141,7 +141,7 @@ if has('nvim')
   " Use a full color colorscheme with neovim.
   set termguicolors
   set background=dark
-  colorscheme base16-onedark
+  colorscheme base16-default-dark
 
   " Fix terrible hard to read cursor color.
   hi MatchParen guifg=#F8F8F0 guibg=#444444 gui=bold
@@ -157,7 +157,7 @@ else
   " Non true color colorscheme since vim does not support true color.
   set background=dark
   let base16colorspace=256
-  colorscheme base16-onedark
+  colorscheme base16-default-dark
 endif
 
 " Do OS specific configurations here.
@@ -247,7 +247,7 @@ autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 let g:ycm_rust_src_path = '/usr/local/rust/rustc-current/src'
 let g:jsx_ext_required = 0
-let g:airline_theme = 'base16_ashes'
+let g:airline_theme = 'base16_default'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 0
 let g:airline#extensions#tabline#left_sep = ''
