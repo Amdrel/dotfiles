@@ -277,7 +277,7 @@ export PATH="$HOME/.pyenv/shims:$PATH"
 
 if which pyenv >/dev/null; then
   eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
+  #eval "$(pyenv virtualenv-init -)"
 fi
 
 if [ -d $HOME/.private-zshrc.d ]; then
