@@ -63,7 +63,7 @@ autoload -U compinit && compinit
 export GOPATH="$HOME/src/go"
 
 # The prettiest path of them all.
-export PATH="$HOME/.pyenv/bin:$HOME/.yarn/bin:/usr/lib64/qt-3.3/bin:/usr/local/go/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.local/bin:$HOME/.local/bin/nim/bin:$HOME/.local/bin/google-cloud-sdk/bin:$HOME/.local/bin/google-cloud-sdk/platform/google_appengine:$HOME/Android/Sdk/tools:$HOME/Android/Sdk/platform-tools:$HOME/src/go/bin:$HOME/.cargo/bin:$HOME/bin/arduino-1.6.5:$HOME/bin/arduino-1.6.5/hardware/tools/avr/bin:/usr/bin/core_perl:$HOME/.cabal/bin:$HOME/.nimble/bin"
+export PATH="/Library/Frameworks/Mono.framework/Commands:$HOME/.pyenv/bin:$HOME/.yarn/bin:/usr/lib64/qt-3.3/bin:/usr/local/go/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$HOME/.local/bin:$HOME/.local/bin/nim/bin:$HOME/.local/bin/google-cloud-sdk/bin:$HOME/.local/bin/google-cloud-sdk/platform/google_appengine:$HOME/Android/Sdk/tools:$HOME/Android/Sdk/platform-tools:$HOME/src/go/bin:$HOME/.cargo/bin:$HOME/bin/arduino-1.6.5:$HOME/bin/arduino-1.6.5/hardware/tools/avr/bin:/usr/bin/core_perl:$HOME/.cabal/bin:$HOME/.nimble/bin"
 
 # Add linuxbrew to the path if it exists.
 if [ `uname` = 'Linux' ] && [ -d "$HOME/.linuxbrew" ]; then

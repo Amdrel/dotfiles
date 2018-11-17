@@ -201,10 +201,10 @@ map <F5> :GoRun<CR>
 "
 " C-h may not work for some terminals as it's interpreted as BS, so BS is
 " mapped to C-W h if this is the case (see above).
-nmap <silent> <C-h> :wincmd h<CR>
-nmap <silent> <C-j> :wincmd j<CR>
-nmap <silent> <C-k> :wincmd k<CR>
-nmap <silent> <C-l> :wincmd l<CR>
+"nmap <silent> <C-h> :wincmd h<CR>
+"nmap <silent> <C-j> :wincmd j<CR>
+"nmap <silent> <C-k> :wincmd k<CR>
+"nmap <silent> <C-l> :wincmd l<CR>
 
 let g:colorizer_auto_filetype='css,html' " CSS hex color backgrounds.
 let g:html5_event_handler_attributes_complete = 0
@@ -229,6 +229,10 @@ if filereadable(source_candidate)
 elseif filereadable(system_candidate)
   let g:ycm_path_to_python_interpreter = system_candidate
 endif
+
+"if filereadable(system_candidate)
+"  let g:ycm_path_to_python_interpreter = system_candidate
+"endif
 
 " Fix highlighting for select files.
 autocmd BufNewFile,BufRead *.gd set filetype=gdscript
