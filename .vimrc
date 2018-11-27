@@ -251,7 +251,7 @@ autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 let g:ycm_rust_src_path = '/usr/local/rust/rustc-current/src'
 let g:jsx_ext_required = 0
-let g:airline_theme = 'base16_default'
+let g:airline_theme = 'base16_grayscale'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 0
 let g:airline#extensions#tabline#left_sep = ''
