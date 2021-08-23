@@ -53,7 +53,7 @@ nmap <silent> <C-l> :wincmd l<CR>
 
 " Vim distribution specific configurations.
 if has('nvim')
-  let g:prog_name = "Neovim"
+  let g:prog_name = "neovim"
 
   " Provide an easy way to escape the terminal.
   tnoremap <C-X> <C-\><C-n>
@@ -71,7 +71,7 @@ if has('nvim')
   hi MatchParen guifg=#F8F8F0 guibg=#444444 gui=bold
   set termguicolors
 else
-  let g:prog_name = "Vim"
+  let g:prog_name = "vim"
 endif
 
 " Setup clipboard to work on linux, bsds, and darwin.
