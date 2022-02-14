@@ -52,7 +52,9 @@ ZSH_CUSTOM=$HOME/.zsh_custom
 plugins=(git tmux docker zsh-syntax-highlighting colored-man-pages)
 
 # Search for custom zsh completions stored in the home directory.
-fpath=(~/.zsh/*.completions $fpath)
+if [ -d ~/.zsh ]; then
+  fpath=(~/.zsh/*.completions $fpath)
+fi
 
 #
 # User configuration and environment variables.
