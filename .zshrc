@@ -82,6 +82,7 @@ rebuild_gems() {
 # Use neovim as the default editor if availabe, if not default back to vim as
 # it's usually available on most systems.
 if type "nvim" > /dev/null; then
+  alias vim="nvim"
   export EDITOR="nvim"
 else
   export EDITOR="vim"
