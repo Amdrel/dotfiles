@@ -52,8 +52,7 @@ ZSH_CUSTOM=$HOME/.zsh_custom
 plugins=(git tmux docker zsh-syntax-highlighting colored-man-pages)
 
 # Search for custom zsh completions stored in the home directory.
-fpath=(~/.zsh/completions $fpath)
-autoload -U compinit && compinit
+fpath=(~/.zsh/*.completions $fpath)
 
 #
 # User configuration and environment variables.
@@ -67,6 +66,10 @@ export PATH="$HOME/.local/bin:$HOME/.pyenv/bin:$HOME/.yarn/bin:$HOME/src/go/bin:
 
 # Load oh-my-zsh config.
 source $ZSH/oh-my-zsh.sh
+
+# Run autoload for loading completions only after sourcing oh-my-zsh so it
+# doesn't squash our prefs.
+autoload -Uz compinit && compinit
 
 # Shell and program aliases.
 alias la="ls -a"
