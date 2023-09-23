@@ -69,7 +69,6 @@ if has('nvim')
 
   " Fix terrible hard to read cursor color.
   hi MatchParen guifg=#F8F8F0 guibg=#444444 gui=bold
-  set termguicolors
 else
   let g:prog_name = "vim"
 endif

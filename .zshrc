@@ -96,9 +96,9 @@ fi
 
 # Adds 'clog' alias which can be used for writing daily logs concerning
 # day-to-day activities.
-export LOG_DIR=$HOME/Log
-mkdir -p $LOG_DIR
-alias clog="$EDITOR $LOG_DIR/$(date "+%Y-%m-%d").md"
+#export LOG_DIR=$HOME/Log
+#mkdir -p $LOG_DIR
+#alias clog="$EDITOR $LOG_DIR/$(date "+%Y-%m-%d").md"
 
 # Allow tmux to use full 256 colors. Will only be exported if there is an
 # actual tmux session, otherwise the terminal emulator picks the term.
