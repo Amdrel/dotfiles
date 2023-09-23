@@ -49,7 +49,7 @@ ZSH_CUSTOM=$HOME/.zsh_custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux docker zsh-syntax-highlighting colored-man-pages)
+plugins=(git tmux docker ng zsh-syntax-highlighting colored-man-pages)
 
 # Search for custom zsh completions stored in the home directory.
 if [ -d ~/.zsh ]; then
@@ -60,7 +60,7 @@ fi
 # User configuration and environment variables.
 #
 
-# Non default gopath under src.
+# Non-default gopath under src.
 export GOPATH="$HOME/src/go"
 
 # The prettiest path of them all.
@@ -75,8 +75,9 @@ autoload -Uz compinit && compinit
 
 # Shell and program aliases.
 alias la="ls -a"
-alias ll="ls -al"
+alias ll="ls -alh"
 alias vi="vim"
+alias nn=pnpm
 
 # Utility commands.
 
@@ -149,14 +150,42 @@ nvm() {
   fi
 }
 
+# Aliases for node cli packages that I use on a regular basis. I don't like
+# using global packages when I can help it and prefer to run local versions
+# through npx.
+
+ng() {
+  npx ng "$@"
+}
+
+nx() {
+  npx nx "$@"
+}
+
+# Load env variables from .env files into the current shell environment.
+senv() {
+  export $(cat .env | xargs)
+}
+
+# Useful function that tells me how far ahead of main that I am so I don't have
+# to count when doing certain edits to the history.
+gbase() {
+  if git rev-parse --git-dir > /dev/null 2>&1; then
+    echo "HEAD is $(git rev-list --count HEAD ^main) commit(s) ahead of main\n"
+    git log -n1 $(git merge-base HEAD main)
+  else
+    echo "Not in a git repository"
+  fi
+}
+
 # Add pyenv to the path so multiple python versions can be accessed.
 export PATH="$HOME/.pyenv/shims:$PATH"
 
 if which pyenv >/dev/null 2>&1; then
   eval "$(pyenv init -)"
-  #eval "$(pyenv virtualenv-init -)"
 fi
 
+# Load out-of-tree zsh scripts that I don't want to expose to the internet.
 if [ -d $HOME/.private-zshrc.d ]; then
   for file in $HOME/.private-zshrc.d/*.zsh; do
     source $file
