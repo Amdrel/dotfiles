@@ -40,16 +40,22 @@ set infercase
 set ttyfast
 set lazyredraw
 
-" Keep selection when reindenting blocks of selected text.
-xnoremap < <gv
-xnoremap > >gv
+if !exists('g:vscode')
+  " Window management key mappings so there's no need to press C-W to switch
+  " buffers. C-hjkl can be used to switch between buffers with these mappings.
+  nmap <silent> <C-h> :wincmd h<CR>
+  nmap <silent> <C-j> :wincmd j<CR>
+  nmap <silent> <C-k> :wincmd k<CR>
+  nmap <silent> <C-l> :wincmd l<CR>
 
-" Window management key mappings so there's no need to press C-W to switch
-" buffers. C-hjkl can be used to switch between buffers with these mappings.
-nmap <silent> <C-h> :wincmd h<CR>
-nmap <silent> <C-j> :wincmd j<CR>
-nmap <silent> <C-k> :wincmd k<CR>
-nmap <silent> <C-l> :wincmd l<CR>
+  " Keep selection when reindenting blocks of selected text.
+  xnoremap < <gv
+  xnoremap > >gv
+else
+  " vscode-neovim rebinds 'gq' to VSCode's code formatting feature for some
+  " reason. I prefer to have it work the same was as it does in vanilla vim.
+  " unmap gq
+endif
 
 " Vim distribution specific configurations.
 if has('nvim')
