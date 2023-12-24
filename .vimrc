@@ -88,6 +88,21 @@ if has("unix")
   elseif os == 'Linux' || os == 'FreeBSD' || os == 'OpenBSD' || os == 'NetBSD'
     set clipboard=unnamedplus
   endif
+elseif executable('win32yank.exe') == 1
+  set clipboard=unnamedplus
+
+  let g:clipboard = {
+  \   'name': 'win32yank',
+  \   'copy': {
+  \     '+': 'win32yank.exe -i --crlf',
+  \     '*': 'win32yank.exe -i --crlf',
+  \   },
+  \   'paste': {
+  \     '+': 'win32yank.exe -o --lf',
+  \     '*': 'win32yank.exe -o --lf',
+  \   },
+  \   'cache_enabled': 0,
+  \ }
 endif
 
 set background=dark
