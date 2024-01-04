@@ -106,7 +106,7 @@ elseif executable('win32yank.exe') == 1
 endif
 
 set background=dark
-colorscheme slate
+colorscheme lunaperche
 
 " Generates a title for the window based on the context of the current buffer.
 function! GetTitle()
