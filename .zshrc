@@ -79,6 +79,15 @@ alias ll="ls -alh"
 alias vi="vim"
 alias nn=pnpm
 
+# Custom keybinds.
+
+# Control + backspace
+bindkey '^H' backward-kill-word
+
+# Control + arrows
+bindkey ";5C" forward-word
+bindkey ";5D" backward-word
+
 # Utility commands.
 
 rebuild_gems() {
