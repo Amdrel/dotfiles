@@ -59,7 +59,7 @@ endif
 
 " Vim distribution specific configurations.
 if has('nvim')
-  let g:prog_name = "neovim"
+  let g:prog_name = "nvim"
 
   " Provide an easy way to escape the terminal.
   tnoremap <C-X> <C-\><C-n>
@@ -68,13 +68,14 @@ if has('nvim')
   " Let's map it to move to left window.
   nmap <BS> <C-W>h
 
-  " Change cursor to line cursor while in insert mode. Neovim has first class
-  " support for this and may work with more terminals.
-  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
   " Fix terrible hard to read cursor color.
   hi MatchParen guifg=#F8F8F0 guibg=#444444 gui=bold
+
+  " Restore my preferred cursor on exit, which is the blinking underline.
+  augroup RestoreCursorShapeOnExit
+    autocmd!
+    autocmd VimLeave * set guicursor=a:hor20
+  augroup END
 else
   let g:prog_name = "vim"
 endif
