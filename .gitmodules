@@ -4,3 +4,6 @@
 [submodule "zsh-syntax-highlighting"]
     path = .zsh_custom/plugins/zsh-syntax-highlighting
     url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "init.lua"]
+	path = init.lua
+	url = git@github.com:Amdrel/init.lua.git
