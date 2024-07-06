@@ -78,6 +78,7 @@ alias la="ls -a"
 alias ll="ls -alh"
 alias vi="vim"
 alias nn=pnpm
+alias tmux="tmux -u"
 
 # Custom keybinds.
 
