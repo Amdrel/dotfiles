@@ -1,0 +1,65 @@
+[window]
+
+dimensions = { columns = 100, lines = 38 }
+padding = { x = 2, y = 2 }
+dynamic_padding = true
+
+[font]
+
+normal = { family = "UbuntuMono Nerd Font", style = "Regular" }
+size = 10.5
+
+[colors]
+
+[colors.primary]
+
+foreground = "#d8d8d8"
+background = "#080808"
+
+# Modified version of the falcon colorscheme for alacritty by fenetikm:
+# https://github.com/fenetikm/falcon
+
+[colors.cursor]
+
+text = '0x020221'
+cursor = '0xffe8c0'
+
+[colors.normal]
+
+black =   '0x000004'
+red =     '0xff3600'
+green =   '0x21d150'
+yellow =  '0xffc552'
+blue =    '0x8362e3'
+magenta = '0xff761a'
+cyan =    '0x43e0c2'
+white =   '0xffffff'
+
+[colors.bright]
+
+black =   '0x020221'
+red =     '0xff8e78'
+green =   '0xb2bc55'
+yellow =  '0xffd392'
+blue =    '0x99a4bc'
+magenta = '0xffb07b'
+cyan =    '0x8bccbf'
+white =   '0xf8f8ff'
+
+[cursor]
+
+[cursor.style]
+
+shape = "Underline"
+blinking = "On"
+
+[keyboard]
+
+bindings = [
+    # Bind CTRL-Backspace to ^W so that I can delete words with a familiar bind.
+    { key = "Back", mods = "Control", chars = "\u0017" },
+
+    # I like copying stuff from with the same buttons I use on macOS.
+    { key = "C", mods = "Alt", action = "Copy" },
+    { key = "V", mods = "Alt", action = "Paste" },
+]
