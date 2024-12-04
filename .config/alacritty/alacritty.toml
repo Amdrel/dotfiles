@@ -62,4 +62,7 @@ bindings = [
     # I like copying stuff from with the same buttons I use on macOS.
     { key = "C", mods = "Alt", action = "Copy" },
     { key = "V", mods = "Alt", action = "Paste" },
+
+    # I use CTRL-Space for code suggestions in Neovim.
+    { key = "Space", mods = "Control", chars = "\u0000" },
 ]
