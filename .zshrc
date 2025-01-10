@@ -113,7 +113,7 @@ fi
 # Allow tmux to use full 256 colors. Will only be exported if there is an
 # actual tmux session, otherwise the terminal emulator picks the term.
 if ! [ -z "$TMUX" ]; then
-  export TERM=xterm-256color
+  export TERM=screen-256color
 fi
 
 # Assume GNU Screen supports 256 colors.

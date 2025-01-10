@@ -1,0 +1,54 @@
+theme = Builtin Tango Dark
+background = 030303
+foreground = d8d8d8
+background-opacity = 0.9
+background-blur-radius = 20
+bold-is-bright = true
+
+window-width = 95
+window-height = 34
+window-padding-balance = true
+window-colorspace = display-p3
+
+font-family = UbuntuMono Nerd Font
+font-size = 15
+
+shell-integration-features = no-cursor
+cursor-color = white
+cursor-style = underline
+cursor-style-blink = false
+adjust-underline-thickness = 3
+
+macos-titlebar-proxy-icon = hidden
+#macos-icon = custom-style
+#macos-icon-ghost-color = 080808
+#macos-icon-screen-color = 000000
+
+# Makes CTRL-backspace delete words.
+keybind = ctrl+backspace=text:\x17
+
+# Use macOS-style copy-paste for all platforms.
+keybind = alt+c=copy_to_clipboard
+keybind = alt+v=paste_from_clipboard
+
+# Map command to be the same as meta (ALT) for number keys.
+keybind = cmd+0=text:\x1b0
+keybind = cmd+1=text:\x1b1
+keybind = cmd+2=text:\x1b2
+keybind = cmd+3=text:\x1b3
+keybind = cmd+4=text:\x1b4
+keybind = cmd+5=text:\x1b5
+keybind = cmd+6=text:\x1b6
+keybind = cmd+7=text:\x1b7
+keybind = cmd+8=text:\x1b8
+keybind = cmd+9=text:\x1b9
+
+# Make the base colors bright because my eyes are terrible.
+palette = 0=000004
+palette = 1=ff3600
+palette = 2=21d150
+palette = 3=ffc552
+palette = 4=8362e3
+palette = 5=ff761a
+palette = 6=43e0c2
+palette = 7=ffffff
