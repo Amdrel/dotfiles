@@ -1,14 +1,14 @@
 [window]
 
 dimensions = { columns = 100, lines = 38 }
-padding = { x = 2, y = 2 }
+padding = { x = 2, y = 0 }
 dynamic_padding = true
-opacity = 0.9
+opacity = 0.93
 
 [font]
 
 normal = { family = "UbuntuMono Nerd Font", style = "Regular" }
-size = 10.5
+size = 12
 
 [colors]
 
@@ -66,4 +66,6 @@ bindings = [
 
     # I use CTRL-Space for code suggestions in Neovim.
     { key = "Space", mods = "Control", chars = "\u0000" },
+
+    { key = "F11", action = "ToggleFullscreen" },
 ]
