@@ -19,6 +19,8 @@ cursor-style = underline
 cursor-style-blink = false
 adjust-underline-thickness = 3
 
+mouse-scroll-multiplier = 0.25
+
 macos-titlebar-proxy-icon = hidden
 #macos-icon = custom-style
 #macos-icon-ghost-color = 080808
