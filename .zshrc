@@ -64,7 +64,7 @@ fi
 export GOPATH="$HOME/src/go"
 
 # The prettiest path of them all.
-export PATH="$HOME/.local/bin:$HOME/.pyenv/bin:$HOME/.yarn/bin:$HOME/src/go/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.pyenv/bin:$HOME/.yarn/bin:$HOME/src/go/bin:$HOME/.cargo/bin:$HOME/.config/composer/vendor/bin:$PATH"
 
 # Load oh-my-zsh config.
 source $ZSH/oh-my-zsh.sh
