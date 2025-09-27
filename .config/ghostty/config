@@ -20,14 +20,21 @@ shell-integration-features = no-cursor
 cursor-color = white
 cursor-style = underline
 cursor-style-blink = false
-adjust-underline-thickness = 3
+adjust-cursor-thickness = 5
+adjust-underline-thickness = 1
 
 mouse-scroll-multiplier = 0.25
 
+macos-titlebar-style = native
 macos-titlebar-proxy-icon = hidden
-#macos-icon = custom-style
+macos-custom-icon = /System/Applications/Utilities/Terminal.app/Contents/Resources/Terminal.icns
+macos-icon = custom
 #macos-icon-ghost-color = 080808
 #macos-icon-screen-color = 000000
+
+background-image = ~/.wallpaper
+background-image-opacity = 0.1
+background-image-fit = cover
 
 # Makes CTRL-backspace delete words.
 keybind = ctrl+backspace=text:\x17
@@ -37,16 +44,16 @@ keybind = alt+c=copy_to_clipboard
 keybind = alt+v=paste_from_clipboard
 
 # Map command to be the same as meta (ALT) for number keys.
-keybind = cmd+0=text:\x1b0
-keybind = cmd+1=text:\x1b1
-keybind = cmd+2=text:\x1b2
-keybind = cmd+3=text:\x1b3
-keybind = cmd+4=text:\x1b4
-keybind = cmd+5=text:\x1b5
-keybind = cmd+6=text:\x1b6
-keybind = cmd+7=text:\x1b7
-keybind = cmd+8=text:\x1b8
-keybind = cmd+9=text:\x1b9
+keybind = cmd+digit0=text:\x1b0
+keybind = cmd+digit1=text:\x1b1
+keybind = cmd+digit2=text:\x1b2
+keybind = cmd+digit3=text:\x1b3
+keybind = cmd+digit4=text:\x1b4
+keybind = cmd+digit5=text:\x1b5
+keybind = cmd+digit6=text:\x1b6
+keybind = cmd+digit7=text:\x1b7
+keybind = cmd+digit8=text:\x1b8
+keybind = cmd+digit9=text:\x1b9
 
 # Make the base colors bright because my eyes are terrible.
 palette = 0=000004
