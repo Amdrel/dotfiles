@@ -32,8 +32,8 @@ macos-icon = custom
 #macos-icon-ghost-color = 080808
 #macos-icon-screen-color = 000000
 
-background-image = ~/.wallpaper
-background-image-opacity = 0.1
+#background-image = ~/.wallpaper
+background-image-opacity = 0.075
 background-image-fit = cover
 
 # Makes CTRL-backspace delete words.
@@ -64,3 +64,4 @@ palette = 4=8362e3
 palette = 5=ff761a
 palette = 6=43e0c2
 palette = 7=ffffff
+keybind = shift+enter=text:\x1b\r
