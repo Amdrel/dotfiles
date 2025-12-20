@@ -1,7 +1,7 @@
 theme = Builtin Tango Dark
 background = 030303
 foreground = d8d8d8
-background-opacity = 0.9
+background-opacity = 0.8
 background-blur-radius = 20
 bold-is-bright = true
 
@@ -32,9 +32,10 @@ macos-icon = custom
 #macos-icon-ghost-color = 080808
 #macos-icon-screen-color = 000000
 
-#background-image = ~/.wallpaper
-background-image-opacity = 0.075
+background-image = ~/.wallpaper
+background-image-opacity = 0.25
 background-image-fit = cover
+background-blur = 100
 
 # Makes CTRL-backspace delete words.
 keybind = ctrl+backspace=text:\x17
