@@ -74,6 +74,10 @@ export PATH="$HOME/.local/bin:$HOME/.pyenv/bin:$HOME/.yarn/bin:$HOME/src/go/bin:
 # Load oh-my-zsh config.
 source $ZSH/oh-my-zsh.sh
 
+# Override termcap colors because blue is cooler than red.
+less_termcap[mb]="${fg_bold[blue]}"
+less_termcap[md]="${fg_bold[blue]}"
+
 # Run autoload for loading completions only after sourcing oh-my-zsh so it
 # doesn't squash our prefs.
 autoload -Uz compinit && compinit
@@ -94,12 +98,6 @@ bindkey '^H' backward-kill-word
 bindkey ";5C" forward-word
 bindkey ";5D" backward-word
 
-# Utility commands.
-
-rebuild_gems() {
-  gem pristine 2> >(grep -o "gem pristine.*") | zsh
-}
-
 # Use neovim as the default editor if availabe, if not default back to vim as
 # it's usually available on most systems.
 if type "nvim" > /dev/null; then
@@ -109,40 +107,10 @@ else
   export EDITOR="vim"
 fi
 
-# Adds 'clog' alias which can be used for writing daily logs concerning
-# day-to-day activities.
-#export LOG_DIR=$HOME/Log
-#mkdir -p $LOG_DIR
-#alias clog="$EDITOR $LOG_DIR/$(date "+%Y-%m-%d").md"
-
 # Allow tmux to use full 256 colors. Will only be exported if there is an
 # actual tmux session, otherwise the terminal emulator picks the term.
 if ! [ -z "$TMUX" ]; then
   export TERM=screen-256color
-fi
-
-# Assume GNU Screen supports 256 colors.
-if [ "$TERM" = "screen" ]; then
-  export TERM=screen-256color
-fi
-
-# Prepend the ruby gems path if ruby and rubygems is installed. Gem error
-# output is silenced as it will complain about /mnt/c being writable when
-# used in WSL. Windows permissions are still enforced on this 9P mount and
-# this actually isn't an issue.
-if which ruby > /dev/null 2>&1 && which gem >/dev/null 2>&1; then
-  alias gem='gem 2>/dev/null'
-  PATH="$(gem environment | grep 'EXECUTABLE DIRECTORY' | cut -d: -f2 | sed 's/^\s//g'):$PATH"
-  unalias gem
-  PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
-fi
-
-# Use iTerm2 shell integration on Darwin if available and only if not logged in
-# over ssh to prevent prompt corruption.
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-  # Logged in over ssh.
-else
-  test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 fi
 
 export NVM_DIR="$HOME/.nvm"
@@ -175,6 +143,10 @@ ng() {
 
 nx() {
   npx nx "$@"
+}
+
+vercel() {
+  npx vercel "$@"
 }
 
 # Load env variables from .env files into the current shell environment.
