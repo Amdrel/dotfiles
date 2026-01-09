@@ -165,6 +165,14 @@ gbase() {
   fi
 }
 
+dbash() {
+  docker exec -ti --user root $1 /bin/bash
+}
+
+dshell() {
+  docker exec -ti --user root $1 /bin/sh
+}
+
 # Add pyenv to the path so multiple python versions can be accessed.
 export PATH="$HOME/.pyenv/shims:$PATH"
 

@@ -33,7 +33,7 @@ macos-icon = custom
 #macos-icon-screen-color = 000000
 
 background-image = ~/.wallpaper
-background-image-opacity = 0.25
+background-image-opacity = 0.2
 background-image-fit = cover
 background-blur = 100
 
