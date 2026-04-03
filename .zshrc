@@ -194,6 +194,14 @@ if which pyenv >/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+# Reset cursor to steady underline before each prompt. Neovim 0.12+ no longer
+# allows overriding the cursor shape on exit via VimLeave autocmds, so I have
+# to do this in the shell instead.
+reset_cursor() {
+  printf '\e[4 q';
+}
+precmd_functions+=(reset_cursor)
+
 # Load out-of-tree zsh scripts that I don't want to expose to the internet.
 if [ -d $HOME/.private-zshrc.d ]; then
   for file in $HOME/.private-zshrc.d/*.zsh(N); do
