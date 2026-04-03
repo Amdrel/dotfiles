@@ -1,8 +1,8 @@
 theme = Builtin Tango Dark
 background = 030303
 foreground = d8d8d8
-background-opacity = 0.8
-background-blur-radius = 20
+background-opacity = 1
+background-blur-radius = 10
 bold-is-bright = true
 
 window-width = 95

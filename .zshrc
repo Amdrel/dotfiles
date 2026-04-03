@@ -173,6 +173,20 @@ dshell() {
   docker exec -ti --user root $1 /bin/sh
 }
 
+dlogs() {
+  docker compose logs -f --since $(date --iso-8601)
+}
+
+docker-compose() {
+  docker compose "$@"
+}
+
+jqfmt() {
+  for file in "$@"; do
+    jq . "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+  done
+}
+
 # Add pyenv to the path so multiple python versions can be accessed.
 export PATH="$HOME/.pyenv/shims:$PATH"
 
@@ -182,7 +196,7 @@ fi
 
 # Load out-of-tree zsh scripts that I don't want to expose to the internet.
 if [ -d $HOME/.private-zshrc.d ]; then
-  for file in $HOME/.private-zshrc.d/*.zsh; do
+  for file in $HOME/.private-zshrc.d/*.zsh(N); do
     source $file
   done
 fi
