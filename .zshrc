@@ -173,6 +173,10 @@ dshell() {
   docker exec -ti --user root $1 /bin/sh
 }
 
+dex() {
+  docker exec -ti --user root "$@"
+}
+
 dlogs() {
   docker compose logs -f --since $(date --iso-8601)
 }
