@@ -33,7 +33,7 @@ macos-icon = custom
 #macos-icon-screen-color = 000000
 
 background-image = ~/.wallpaper
-background-image-opacity = 0.2
+background-image-opacity = 0.10
 background-image-fit = cover
 background-blur = 100
 
@@ -65,4 +65,5 @@ palette = 4=8362e3
 palette = 5=ff761a
 palette = 6=43e0c2
 palette = 7=ffffff
+
 keybind = shift+enter=text:\x1b\r
