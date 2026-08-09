@@ -202,9 +202,22 @@ fi
 # allows overriding the cursor shape on exit via VimLeave autocmds, so I have
 # to do this in the shell instead.
 reset_cursor() {
-  printf '\e[4 q';
+  printf '\e[4 q'
 }
 precmd_functions+=(reset_cursor)
+
+# Nit pick of mine, but just use localhost in the title if it's a local
+# terminal. It's a very easy tell that it's the same machine.
+set_title() {
+  local title_host="localhost"
+
+  if [[ -n $SSH_CLIENT ]]; then
+    title_host="%m"
+  fi
+
+  print -Pn "\e]2;%n@$title_host:%~\a"
+}
+precmd_functions+=(set_title)
 
 # Load out-of-tree zsh scripts that I don't want to expose to the internet.
 if [ -d $HOME/.private-zshrc.d ]; then
