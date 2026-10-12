@@ -1,17 +1,20 @@
 theme = Builtin Tango Dark
 background = 030303
 foreground = d8d8d8
-background-opacity = 1
-background-blur-radius = 10
+background-opacity = 0.92
+background-blur-radius = 30
 bold-is-bright = true
 
-window-width = 95
-window-height = 34
+window-width = 110
+window-height = 40
 window-padding-balance = true
-window-padding-x = 4
-window-padding-y = 2
+window-padding-x = 0
+window-padding-y = 0
 window-colorspace = display-p3
-adjust-cell-height = 1.8%
+adjust-cell-height = 1%
+
+working-directory = home
+window-inherit-working-directory = false
 
 font-family = UbuntuMono Nerd Font
 font-size = 15
@@ -32,10 +35,10 @@ macos-icon = custom
 #macos-icon-ghost-color = 080808
 #macos-icon-screen-color = 000000
 
-background-image = ~/.wallpaper
-background-image-opacity = 0.10
-background-image-fit = cover
-background-blur = 100
+#background-image = ~/.wallpaper
+#background-image-opacity = 0.05
+#background-image-fit = cover
+#background-blur = 100
 
 # Makes CTRL-backspace delete words.
 keybind = ctrl+backspace=text:\x17
