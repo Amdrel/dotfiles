@@ -1,7 +1,7 @@
 theme = Builtin Tango Dark
 background = 030303
 foreground = d8d8d8
-background-opacity = 0.92
+background-opacity = 0.95
 background-blur-radius = 30
 bold-is-bright = true
 
@@ -19,7 +19,7 @@ window-inherit-working-directory = false
 font-family = UbuntuMono Nerd Font
 font-size = 15
 
-shell-integration-features = no-cursor
+shell-integration-features = no-cursor, no-title
 cursor-color = white
 cursor-style = underline
 cursor-style-blink = false
