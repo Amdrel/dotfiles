@@ -26,7 +26,7 @@ cursor-style-blink = false
 adjust-cursor-thickness = 5
 adjust-underline-thickness = 1
 
-mouse-scroll-multiplier = 0.25
+mouse-scroll-multiplier = precision:0.25,discrete:1
 
 macos-titlebar-style = native
 macos-titlebar-proxy-icon = hidden
